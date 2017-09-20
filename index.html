@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html>
-
-<style>
-	.lift_div {
-		/*bordering items, bottom only*/
-	text-align: center;
-	border-bottom: thin solid gray;
-	/*centering div in top 10% of page*/
-	position: absolute;
-    width: 500px;
-    z-index: 15;
-    top: 20%;
-    left: 25%;
-    /*IMPORTANT: the last number in this line should be half of the width to center*/;
-    margin: -100px 0 0 -250px;
-	}
-
-	p.lift_p {
-		color: #E74C3C
-	}
-</style>
-
-<head>
-	<h1 style = "font-family:Arial" align="center">LiftApp</h1>
-</head>
-<body>
-
-</body>
-
-<div class = "lift_div">
-	<h1 style = "font-family: Arial" align="center">Lift Tab</h1>
-	<p class = "lift_p">Click here to view your lifts</p>
-</div>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	<body>
+		<h1 style="font-family:Arial" align="center">LiftApp</h1>
+		<div id="container">
+			<div class="lift">
+				<h1 style="font-family:Arial" align="center">Lift Tab</h1>
+				<p class="lift_p">Click here to view your lifts</p>
+			</div>
+			<div class="food">
+				<h1 style="font-family:Arial" align="center">Food Tab</h1>
+				<p class="lift_p">Click here to view your food</p>
+			</div>
+		</div>
+	</body>
 </html>

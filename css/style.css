@@ -1,3 +1,9 @@
+h2.subhead {
+	color: #E74C3C;
+	margin-bottom: 50px;
+	border-bottom: 1px solid gray;
+}
+
 #container {
 	width: 1050px;
 	margin: auto;
@@ -8,9 +14,23 @@
 	width: 500px;
 	display: inline-block;
 	text-align: center;
-	border-bottom: thin solid gray;	
+	border-bottom: 1px solid gray;	
 
 }
+
+#lift_link {
+	color: #E74C3C;
+	text-decoration: none;
+}
+#food_link {
+	color: #E74C3C;
+	text-decoration: none;
+}
+#weight_link {
+	color: #E74C3C;
+	text-decoration: none;
+}
+
 
 .lift {
 	/*bordering items, bottom only*/
@@ -20,6 +40,7 @@
 p.lift_p {
 	color: #E74C3C
 }
+
 
 .food {
 	float: right;

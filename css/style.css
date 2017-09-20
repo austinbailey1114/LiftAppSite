@@ -1,20 +1,37 @@
+#headerContainer {
+	width: 200px;
+	margin: auto;
+	height: 60px;
+}
+
+#mainTitle, #icon {
+	display: inline-block;
+}
+#mainTitle {
+	float: right;
+	line-height: 28px;
+}
+#icon {
+	float: left;
+}
+
 h2.subhead {
 	color: #E74C3C;
-	margin-bottom: 50px;
-	border-bottom: 1px solid gray;
+	margin-bottom: 30px;
 }
 
 #container {
 	width: 1050px;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	height: 125px;
 }
 .lift, .food {
 	width: 500px;
 	display: inline-block;
 	text-align: center;
-	border-bottom: 1px solid gray;	
+	border: 3px solid #D3D3D3;
+	border-radius: 15px;	
 
 }
 
@@ -49,6 +66,7 @@ p.lift_p {
 .weight {
 	width: 500px;
 	text-align: center;
-	border-bottom: thin solid gray;
-	margin:auto;
+	border: 3px solid #D3D3D3;
+	border-radius: 15px;
+	margin: auto;
 }

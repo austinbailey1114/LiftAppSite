@@ -1,6 +1,8 @@
 #container {
 	width: 1050px;
 	margin: auto;
+	margin-bottom: 50px;
+	height: 125px;
 }
 .lift, .food {
 	width: 500px;
@@ -21,4 +23,11 @@ p.lift_p {
 
 .food {
 	float: right;
+}
+
+.weight {
+	width: 500px;
+	text-align: center;
+	border-bottom: thin solid gray;
+	margin:auto;
 }

@@ -3,24 +3,35 @@
 }
 
 #menuDiv {
-	background-color: #F18169;
 	width: 15%;
 	float: left;
-	height: 1000px;
-	padding: 0;
+	height: 1100px;
+	padding: 0px;
+	background-color: white;
+}
+
+#menuDiv a {
+	font-family: Arial;
+	color: #E74C3C;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	margin-top: 30px;
+	margin-left: 20px;
 }
 
 #dashboardDiv {
 	width: 85%;
 	float: right;
+	background-color: #f8f8f8
 }
 
 #topContainer {
 	border-bottom: thin solid gray;
 	height: 90px;
-
-
 }
+
+
 
 #headerContainer {
 	width: 250px;
@@ -28,7 +39,25 @@
 	height: 80px;
 }
 
-a {
+#icon, #mainTitle {
+	display: inline-block;
+	line-height: 45px;
+	vertical-align: middle;
+
+}
+
+#icon {
+	float: left;
+	border-radius: 15px;
+	margin-top:10px;
+  	position: relative;
+}
+
+#mainTitle {
+	float: right;
+}
+
+#linksContainer a {
 	color: #E74C3C;
 	text-decoration: none;
 	margin-right: 50px;
@@ -64,6 +93,9 @@ h2.subhead {
 	height: 325px;
 	border: 1px solid #D3D3D3;
 	margin-top: 40px;
+	border-radius: 5px;
+	background-color: white;
+
 	/*border-radius: 15px;*/
 }
 .lift, .addLift {
@@ -118,6 +150,9 @@ button {
 	margin-bottom: 50px;
 	height: 325px;
 	border: 1px solid #D3D3D3;
+	border-radius: 5px;
+	background-color: white;
+
 }
 
 #showData, #newFood {
@@ -142,6 +177,8 @@ button {
 	height: 325px;
 	border: 1px solid #D3D3D3;
 	margin-top: 40px;
+	border-radius: 5px;
+	background-color: white;
 }
 
 .bodyweightGraph, #newWeight {
@@ -163,6 +200,8 @@ button {
 	width: 90%;
 	text-align: center;
 }
+
+
 
 
 

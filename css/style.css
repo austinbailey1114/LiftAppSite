@@ -7,7 +7,7 @@
 }
 
 #headerContainer {
-	width: 390px;
+	width: 250px;
 	margin: auto;
 	height: 80px;
 }
@@ -29,53 +29,65 @@ h2.subhead {
 	margin-bottom: 30px;
 }
 
+#graphDiv {
+	text-align: center;
+	width: 90%;
+}
+
 #container {
-	width: 1050px;
+	width: 1000px;
 	margin: auto;
 	margin-bottom: 30px;
-	height: 125px;
+	height: 350px;
+	border: 1px solid #D3D3D3;
+	/*border-radius: 15px;*/
 }
-.lift, .food {
+.lift, .addLift {
 	width: 500px;
 	display: inline-block;
-	text-align: center;
-	border: 3px solid #D3D3D3;
-	border-radius: 15px;	
-
+	text-align: center;	
 }
-
-#lift_link {
-	color: #E74C3C;
-	text-decoration: none;
-}
-#food_link {
-	color: #E74C3C;
-	text-decoration: none;
-}
-#weight_link {
-	color: #E74C3C;
-	text-decoration: none;
-}
-
 
 .lift {
 	/*bordering items, bottom only*/
 	float: left;
 }
 
-p.lift_p {
-	color: #E74C3C
+input {
+	padding:5px 15px; 
+    border:2px solid #ccc; 
+    width: 200px;
+    margin: auto;
+    border-bottom: 1px solid #ccc;
+    border-top: 0px solid #ccc;
+    border-right-width: 0px;
+    border-left-width: 0px;
 }
 
+button {
+	padding:5px 15px; 
+    background: #E67767; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
 
-.food {
-	float: right;
 }
 
-.weight {
-	width: 500px;
-	text-align: center;
-	border: 3px solid #D3D3D3;
-	border-radius: 15px;
+#newLiftContainer input, #newLiftContainer button {
 	margin: auto;
+	margin-bottom: 28px;
 }
+
+#weightInput, #repsInput, #typeInput, #dateInput, #saveLift {
+	display: block;
+}
+
+
+
+
+
+
+
+

@@ -2,36 +2,34 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	</head>
 	<body>
 		<div id="topContainer">
 			<div id="headerContainer">
-				<h1 style="font-family:Arial" align="center" id = "mainTitle">Welcome to LiftApp</h1>
+				<h1 style="font-family:Arial" align="center" id = "mainTitle">Dashboard</h1>
 			<img src="./images/hugeIcon.png" id = "icon" width="60px" height="60px">
 			</div>
 		</div>
-
-		
-	
 		<div id="container">
 			<div class="lift">
-				<h2 style="font-family:Arial" align="center">Lift Tracking</h2>
-				<p style="font-family:Arial" class="lift_p">
-					<a href="./lift.html" id = "lift_link">Click here to view your lifts</a>
-				</p>
+				<h2 style="font-family:Arial" align="center">Lift Progress</h2>
+				<div id ="graphDiv">
+					<canvas id="myChart"></canvas>
+				</div>
 			</div>
-			<div class="food">
-				<h2 style="font-family:Arial" align="center">Nutrition</h2>
-				<p style="font-family:Arial" class="lift_p">
-					<a href="./food.html" id = "food_link">Click here to view your food</a>
-				</p>
+			<div id="newLiftContainer">
+				<p style="font-family: Arial" align="center">Log New Lift</p>
+				<input type="text" name="weight" id="weightInput">
+				<input type="text" name="reps" id="repsInput">
+				<input type="text" name="type" id="typeInput">
+				<input type="test" name="date" id="dateInput">
+				<button id="saveLift">Save</button>
 			</div>
 		</div>
-		<div class = "weight">
-			<h2 style="font-family:Arial" align="center">Weight Tracking</h2>
-				<p style="font-family:Arial" class="lift_p">
-					<a href="./weight.html" id = "weight_link">Click here to view your weight tracking</a>
-				</p>
+		<div class = "nutrition">
+			
 		</div>
 	</body>
+	<script type="text/javascript" src = "./js/liftPage.js"></script>
 </html>

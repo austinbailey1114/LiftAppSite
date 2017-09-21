@@ -24,15 +24,37 @@
 }
 
 #graphDiv {
-	float: left;
+	float: right;
 	width: 47%;
 }
 
 #newLiftContainer {
 	text-align: center;
-	align-items: center;
-	width: 40%;
-	float: right;
+	width: 47%;
+	float: left;
+}
+
+input {
+	padding:5px 15px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 200px;
+    margin: auto;
+}
+
+button {
+	padding:5px 15px; 
+    background: #E67767; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+#newLiftContainer input, #newLiftContainer button {
+	margin: auto;
 }
 
 #weightInput, #repsInput, #typeInput, #dateInput, #saveLift {

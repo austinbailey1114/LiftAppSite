@@ -1,0 +1,19 @@
+#topContainer {
+	border-bottom: thin solid gray;
+	height: 80px;
+	margin-top: 25px;
+	margin-bottom: 40px;
+	text-align: center;
+
+}
+
+#pageTitle {
+	display: inline-block;
+	line-height: 20px;
+}
+
+#graphDiv {
+	height: 400px;
+	width: 800px;
+
+}

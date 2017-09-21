@@ -37,6 +37,7 @@ a {
 }
 #headerContainer, #linksContainer {
 	display: inline-block;
+	font-family: Arial;
 }
 
 #headerContainer {
@@ -60,7 +61,7 @@ h2.subhead {
 	width: 95%;
 	margin: auto;
 	margin-bottom: 50px;
-	height: 350px;
+	height: 325px;
 	border: 1px solid #D3D3D3;
 	margin-top: 40px;
 	/*border-radius: 15px;*/
@@ -115,7 +116,7 @@ button {
 	width: 95%;
 	margin: auto;
 	margin-bottom: 50px;
-	height: 350px;
+	height: 325px;
 	border: 1px solid #D3D3D3;
 }
 
@@ -132,6 +133,35 @@ button {
 
 #newFood {
 	float: right;
+}
+
+#weightDiv {
+	width: 95%;
+	margin: auto;
+	margin-bottom: 50px;
+	height: 325px;
+	border: 1px solid #D3D3D3;
+	margin-top: 40px;
+}
+
+.bodyweightGraph, #newWeight {
+	display: inline-block;
+	text-align: center;
+	width: 500px;
+	font-family: Arial;	
+}
+
+#bodyweightGraph {
+	float: right;
+}
+
+#newWeight {
+	float: right;	
+}
+
+#bodyweightGraphDiv {
+	width: 90%;
+	text-align: center;
 }
 
 

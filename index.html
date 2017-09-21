@@ -32,8 +32,9 @@
 					<button id="saveLift">Save</button>
 				</div>
 			</div>
-			<div class = "nutrition">
+			<div class="nutrition">
 				<div id="showData">
+					<h2>Your food intake today</h2>
 					<p>Today's calories: 2341</p>
 					<p>Today's fat: 41g</p>
 					<p>Today's carbs: 123g</p>
@@ -45,9 +46,25 @@
 					<button id="search">Search</button>
 				</div>
 			</div>
+			<div id="weightDiv">
+				<div class="bodyweightGraph">
+					<h2>Bodyweight Graph</h2>
+					<div id ="bodyweightGraphDiv">
+						<canvas id="bodyweightChart"></canvas>
+					</div>
+				</div>
+				<div id="newWeight">
+					<h3>Update bodyweight</h3>
+					<input type="text" name="updateWeight" id="newBodyWeight">
+					<button id="add">Update</button>
+				</div>
+				
+			</div>
 		</div>
 		<div id="menuDiv">
+
 		</div>
 	</body>
 	<script type="text/javascript" src = "./js/buildLiftGraph.js"></script>
+	<script type="text/javascript" src="./js/buildWeightGraph.js"></script>
 </html>

@@ -8,28 +8,47 @@
 		<div id="topContainer">
 			<div id="headerContainer">
 				<h1 style="font-family:Arial" align="center" id = "mainTitle">Dashboard</h1>
-			<img src="./images/hugeIcon.png" id = "icon" width="60px" height="60px">
+			</div>	
+			<div id="linksContainer">
+				<a href="https://www.google.com/">Settings</a>
+				<a href="https://www.google.com/">About</a>
+				<a href="https://www.google.com/">The App</a>
 			</div>
 		</div>
-		<div id="container">
-			<div class="lift">
-				<h2 style="font-family:Arial" align="center">Lift Progress</h2>
-				<div id ="graphDiv">
-					<canvas id="myChart"></canvas>
+		<div id="dashboardDiv">
+			<div id="container">
+				<div class="lift">
+					<h2 style="font-family:Arial" align="center">Lift Progress</h2>
+					<div id ="graphDiv">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+				<div id="newLiftContainer">
+					<h2 style="font-family: Arial" align="center">Log New Lift</h2>
+					<input type="text" name="weight" id="weightInput">
+					<input type="text" name="reps" id="repsInput">
+					<input type="text" name="type" id="typeInput">
+					<input type="test" name="date" id="dateInput">
+					<button id="saveLift">Save</button>
 				</div>
 			</div>
-			<div id="newLiftContainer">
-				<p style="font-family: Arial" align="center">Log New Lift</p>
-				<input type="text" name="weight" id="weightInput">
-				<input type="text" name="reps" id="repsInput">
-				<input type="text" name="type" id="typeInput">
-				<input type="test" name="date" id="dateInput">
-				<button id="saveLift">Save</button>
+			<div class = "nutrition">
+				<div id="showData">
+					<p>Today's calories: 2341</p>
+					<p>Today's fat: 41g</p>
+					<p>Today's carbs: 123g</p>
+					<p>Today's protein: 111g</p>
+				</div>
+				<div id="newFood">
+					<h3>Search Nutritionix API</h3>
+					<input type="text" name="searchField" id="searchInput">
+					<button id="search">Search</button>
+				</div>
 			</div>
 		</div>
-		<div class = "nutrition">
-			
+		<div id="menuDiv">
+			<h1>Testing this text</h1>
 		</div>
 	</body>
-	<script type="text/javascript" src = "./js/liftPage.js"></script>
+	<script type="text/javascript" src = "./js/buildLiftGraph.js"></script>
 </html>

@@ -1,7 +1,15 @@
+#topContainer {
+	border-bottom: thin solid gray;
+	height: 80px;
+	margin-top: 25px;
+	margin-bottom: 40px;
+
+}
+
 #headerContainer {
-	width: 200px;
+	width: 390px;
 	margin: auto;
-	height: 60px;
+	height: 80px;
 }
 
 #mainTitle, #icon {
@@ -9,10 +17,11 @@
 }
 #mainTitle {
 	float: right;
-	line-height: 28px;
+	line-height: 25px;
 }
 #icon {
 	float: left;
+	border-radius: 15px;
 }
 
 h2.subhead {

@@ -9,33 +9,24 @@
 <body>
 	<div id="topContainer">
 		<h1 style="font-family:Arial" align="center" id="pageTitle">Lift Tracking</h1>
+
 	</div>
 
-	<div id="graphDiv">
-		<canvas id="myChart"></canvas>
+
+	<div id="mainDiv">
+		<div id ="graphDiv">
+			<canvas id="myChart"></canvas>
+		</div>
 		
-		<script type="text/javascript">
-			var ctx = document.getElementById('myChart').getContext('2d');
-			var chart = new Chart(ctx, {
-			    // The type of chart we want to create
-			    type: 'line',
-
-			    // The data for our dataset
-			    data: {
-			        labels: ["January", "February", "March", "April", "May", "June", "July"],
-			        datasets: [{
-			            label: "My First dataset",
-			            backgroundColor: 'rgb(255, 99, 132)',
-			            borderColor: 'rgb(255, 99, 132)',
-			            data: [0, 10, 5, 2, 20, 30, 45],
-			        }]
-			    },
-
-			    // Configuration options go here
-			    options: {}
-			});
-
-		</script>
+		<div id="newLiftContainer">
+			<p style="font-family: Arial">Log New Lift</p>
+			<input type="text" name="weight" id="weightInput">
+			<input type="text" name="reps" id="repsInput">
+			<input type="text" name="type" id="typeInput">
+			<input type="test" name="date" id="dateInput">
+			<button id="saveLift">Save</button>
+		</div>
+		<script type="text/javascript" src = "./js/liftPage.js"></script>
 	</div>
 	
 </body>

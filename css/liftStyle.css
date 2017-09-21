@@ -12,8 +12,29 @@
 	line-height: 20px;
 }
 
-#graphDiv {
-	height: 400px;
-	width: 800px;
+#mainDiv {
+	margin: auto;
+	width: 90%;
+	height: 50%;
+	background-color: red;
+}
 
+#graphDiv, #newLiftContainer {
+	display: inline-block;
+}
+
+#graphDiv {
+	float: left;
+	width: 47%;
+}
+
+#newLiftContainer {
+	text-align: center;
+	align-items: center;
+	width: 40%;
+	float: right;
+}
+
+#weightInput, #repsInput, #typeInput, #dateInput, #saveLift {
+	display: block;
 }

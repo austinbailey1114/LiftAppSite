@@ -1,3 +1,14 @@
+body {
+	font-family: 'Roboto' !important;
+}
+
+h2 {
+	font-weight: 400;
+}
+
+h1 {
+	font-weight: 400;
+}
 #dashboardDiv , #menuDiv{
 	display: inline-block;
 }
@@ -11,7 +22,7 @@
 }
 
 #menuDiv a {
-	font-family: Arial;
+	font-family: 'Roboto', sans-serif;
 	color: #E74C3C;
 	text-decoration: none;
 	display: block;
@@ -34,7 +45,7 @@
 
 
 #headerContainer {
-	width: 250px;
+	width: 280px;
 	margin: auto;
 	height: 80px;
 }
@@ -51,6 +62,7 @@
 	border-radius: 15px;
 	margin-top:10px;
   	position: relative;
+  	margin-left: 30px;
 }
 
 #mainTitle {
@@ -66,7 +78,6 @@
 }
 #headerContainer, #linksContainer {
 	display: inline-block;
-	font-family: Arial;
 }
 
 #headerContainer {
@@ -126,6 +137,7 @@ input {
 }
 
 button {
+	color: white;
 	padding:5px 15px; 
     background: #E74C3C; 
     border:0 none;
@@ -160,7 +172,6 @@ button {
 	display: inline-block;
 	text-align: center;
 	width: 500px;
-	font-family: Arial;
 }
 
 #showData {
@@ -186,7 +197,6 @@ button {
 	display: inline-block;
 	text-align: center;
 	width: 500px;
-	font-family: Arial;	
 }
 
 #bodyweightGraph {

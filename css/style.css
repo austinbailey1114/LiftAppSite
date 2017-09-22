@@ -27,7 +27,7 @@ h1 {
 	float: left;
 	height: 1100px;
 	background-color: white;
-	border-right: 1px solid gray;
+	border-right: 1px solid #C0C0C0;
 }
 
 #menuDiv a {
@@ -47,7 +47,7 @@ h1 {
 }
 
 #topContainer {
-	border-bottom: thin solid gray;
+	border-bottom: thin solid #C0C0C0;
 	height: 90px;
 }
 
@@ -92,7 +92,7 @@ h1 {
 }
 #linksContainer {
 	float: right;
-	border-left: 1px solid gray;
+	border-left: 1px solid #C0C0C0;
 	width: 19%;
 	text-align: center;
 	height: 100%;
@@ -124,7 +124,7 @@ h2.subhead {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
-	border: 1px solid #D3D3D3;
+	border: 1px solid #DCDCDC;
 	margin-top: 40px;
 	border-radius: 5px;
 	background-color: white;
@@ -184,7 +184,7 @@ button {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
-	border: 1px solid #D3D3D3;
+	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 	background-color: white;
 
@@ -209,7 +209,7 @@ button {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
-	border: 1px solid #D3D3D3;
+	border: 1px solid #DCDCDC;
 	margin-top: 40px;
 	border-radius: 5px;
 	background-color: white;

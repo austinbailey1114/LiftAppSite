@@ -106,7 +106,10 @@ $lifts = json_decode(trim($lifts), true);
 				$date = strtotime($lift["date"]);
 				$liftxaxis[] = date("m-d", $date);
 
-				$liftyaxis[] = $lift["weight"];
+				$weight = $lift["weight"];
+				$reps = $lift["reps"];
+				$onerepmax = $weight * (1 + ($reps/30));
+				$liftyaxis[] = $onerepmax;
 
 
 			}

@@ -22,7 +22,7 @@ function buildliftChart() {
 
 buildliftChart();
 
-document.getElementById("saveLift").onclick = function() {
+/*document.getElementById("saveLift").onclick = function() {
 	let weight = document.getElementById("weightInput").value;
 	let reps = document.getElementById("repsInput").value;
 	let type = document.getElementById("typeInput").value;
@@ -31,7 +31,7 @@ document.getElementById("saveLift").onclick = function() {
 	liftyaxis.push(weight);
 	buildliftChart();
 
-}
+}*/
 
 function buildweightChart() {
 	var ctx = document.getElementById('bodyweightChart').getContext('2d');
@@ -65,3 +65,5 @@ document.getElementById("add").onclick = function() {
 	buildweightChart();
 
 }
+
+

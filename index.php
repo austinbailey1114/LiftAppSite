@@ -51,12 +51,14 @@ $lifts = json_decode(trim($lifts), true);
 					</div>
 				</div>
 				<div id="newLiftContainer">
-					<h2 align="center">Log New Lift</h2>
-					<input type="text" name="weight" id="weightInput" placeholder="pounds">
-					<input type="text" name="reps" id="repsInput" placeholder="repetitions">
-					<input type="text" name="type" id="typeInput" placeholder="type">
-					<input type="test" name="date" id="dateInput" placeholder="date">
-					<button id="saveLift">Save</button>
+					<form action="./addLift.php" method="post">
+						<h2 align="center">Log New Lift</h2>
+						<input type="text" name="weight" id="weightInput" placeholder="pounds">
+						<input type="text" name="reps" id="repsInput" placeholder="repetitions">
+						<input type="text" name="type" id="typeInput" placeholder="type">
+						<input type="test" name="date" id="dateInput" placeholder="date">
+						<button id="saveLift">Save</button>
+					</form>
 				</div>
 			</div>
 			<div class="nutrition">
@@ -118,3 +120,11 @@ $lifts = json_decode(trim($lifts), true);
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>
 </html>
+
+
+
+
+
+
+
+

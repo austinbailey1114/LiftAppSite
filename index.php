@@ -2,8 +2,9 @@
 require './core/init.php';
 $name = "Austin Bailey";
 
-$ch = curl_init();
 
+/* use cURL to grab lifts */
+$ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lift.php");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -21,6 +22,28 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 
 $lifts = json_decode(trim($lifts), true);
+
+/*use cURL to grab bodyweights*/
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/bodyweight.php");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+
+
+$headers = array();
+$headers[] = "Content-Type: application/json";
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$bodyweights = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+curl_close ($ch);
+
+$bodyweights = json_decode(trim($bodyweights), true);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +125,6 @@ $lifts = json_decode(trim($lifts), true);
 			$liftyaxis = array();
 
 			foreach ($lifts as $lift) {
-				# code...
 				$date = strtotime($lift["date"]);
 				$liftxaxis[] = date("m-d", $date);
 
@@ -110,16 +132,21 @@ $lifts = json_decode(trim($lifts), true);
 				$reps = $lift["reps"];
 				$onerepmax = $weight * (1 + ($reps/30));
 				$liftyaxis[] = $onerepmax;
+			}
 
+			$weightxaxis = array();
+			$weightyaxis = array();
 
+			foreach ($bodyweights as $bodyweight) {
+				$date = strtotime($bodyweight["date"]);
+				$weightxaxis[] = date("m-d", $date);
+				$weightyaxis[] = $bodyweight["weight"];
 			}
 		?>
 		var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
 		var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
-		//var liftxaxis = ["January", "February", "March", "April", "May", "June", "July"];
-		//var liftyaxis = [155, 165, 160, 170, 175, 175, 185];
-		var weightxaxis = ["January", "February", "March"];
-		var weightyaxis = [178, 172, 171, 170];
+		var weightxaxis = <?php echo json_encode($weightxaxis); ?>;
+		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>
 </html>

@@ -57,13 +57,6 @@ function buildweightChart() {
 
 buildweightChart();
 
-document.getElementById("add").onclick = function() {
-	let date = "April";
-	let bodyweight = document.getElementById("newBodyWeight");
-	weightxaxis.push(date);
-	weightyaxis.push(bodyweight);
-	buildweightChart();
 
-}
 
 

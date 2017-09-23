@@ -1,6 +1,3 @@
-var liftxaxis = ["January", "February", "March", "April", "May", "June", "July"];
-var liftyaxis = [155, 165, 160, 170, 175, 175, 185]
-
 function buildliftChart() {
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var chart = new Chart(ctx, {
@@ -35,9 +32,6 @@ document.getElementById("saveLift").onclick = function() {
 	buildliftChart();
 
 }
-
-var weightxaxis = ["January", "February", "March"];
-var weightyaxis = [178, 172, 171, 170]
 
 function buildweightChart() {
 	var ctx = document.getElementById('bodyweightChart').getContext('2d');

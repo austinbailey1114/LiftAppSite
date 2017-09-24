@@ -106,9 +106,11 @@ $bodyweights = json_decode(trim($bodyweights), true);
 					</div>
 				</div>
 				<div id="newWeight">
-					<h2>Update bodyweight</h2>
-					<input type="text" name="updateWeight" id="newBodyWeight" placeholder="pounds">
-					<button id="add">Update</button>
+					<form action="./addWeight.php" method="post">
+						<h2>Update bodyweight</h2>
+						<input type="text" name="updateWeight" id="newBodyWeight" placeholder="pounds">
+						<button id="add">Update</button>
+					</form>
 				</div>
 				
 			</div>

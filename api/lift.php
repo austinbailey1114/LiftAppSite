@@ -29,4 +29,6 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($conn);
 echo json_encode($lifts);
+//test comment to see if this stays
 ?>
+

@@ -18,6 +18,30 @@ h1 {
 	font-weight: 400;
 	
 }
+
+input {
+	padding:5px 15px; 
+    border:2px solid #ccc; 
+    width: 200px;
+    margin: auto;
+    border-bottom: 1px solid #ccc;
+    border-top: 0px solid #ccc;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    text-align: center;
+}
+
+button {
+	color: white;
+	padding:5px 15px; 
+    background: #E74C3C; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+}
 #dashboardDiv , #menuDiv{
 	display: inline-block;
 }
@@ -116,7 +140,13 @@ h2.subhead {
 
 #graphDiv {
 	text-align: center;
-	width: 90%;
+	width: 100%;
+	height: 100%;
+}
+
+#myChart {
+	text-align: center;
+	height: 250px;
 }
 
 #container {
@@ -124,59 +154,83 @@ h2.subhead {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
-	border: 1px solid #DCDCDC;
 	margin-top: 40px;
-	border-radius: 5px;
-	background-color: white;
 
 	/*border-radius: 15px;*/
 }
-.lift, .addLift {
-	width: 500px;
+.lift {
+	width: 55%;
 	display: inline-block;
 	text-align: center;	
-}
-
-.lift {
-	/*bordering items, bottom only*/
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
 	float: right;
 }
 
-.addLift {
-	float: left;
+#newLiftContainer {
+	width: 40%;
+	height: 100%;
+	text-align: right;
 }
 
-input {
-	padding:5px 15px; 
-    border:2px solid #ccc; 
-    width: 200px;
-    margin: auto;
-    border-bottom: 1px solid #ccc;
-    border-top: 0px solid #ccc;
-    border-right-width: 0px;
-    border-left-width: 0px;
-    text-align: center;
+#newLiftContainer input{
+	float: right;
+	text-align: right;
+	margin-right: 5%;
+	line-height: 40px;
+	border-bottom: 0px;
 }
 
-button {
-	color: white;
-	padding:5px 15px; 
-    background: #E74C3C; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+#addNewWeight, #addNewReps, #addNewType, #addNewDate {
+	height: 52px;
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 14px;
+	background-color: pink;
+	display: block;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
 
 }
 
 #newLiftContainer input, #newLiftContainer button {
-	margin: auto;
-	margin-bottom: 25px;
+	margin-bottom: 0px;
 }
 
-#weightInput, #repsInput, #typeInput, #dateInput, #saveLift {
-	display: block;
+#promptWeight, #weightInput {
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#promptReps, #repsInput {
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#promptType, #typeInput {
+	display: inline-block;
+	margin-left: 5%;
+}
+
+#promptDate, #dateInput {
+	display: inline-block;
+	margin-left: 5%
+}
+
+#promptWeight, #promptReps, #promptType, #promptDate {
+	float: left;
+}
+
+#saveLift {
+	color: #E74C3C;
+	height: 52px;
+	width: 15%;
+	float: right;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
 }
 
 .nutrition {

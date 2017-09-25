@@ -43,7 +43,6 @@ curl_close ($ch);
 
 $bodyweights = json_decode(trim($bodyweights), true);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +74,22 @@ $bodyweights = json_decode(trim($bodyweights), true);
 				</div>
 				<div id="newLiftContainer">
 					<form action="./addLift.php" method="post">
-						<h2 align="center">Log New Lift</h2>
-						<input type="text" name="weight" id="weightInput" placeholder="pounds">
-						<input type="text" name="reps" id="repsInput" placeholder="repetitions">
-						<input type="text" name="type" id="typeInput" placeholder="type">
-						<input type="test" name="date" id="dateInput" placeholder="date">
+						<div id="addNewWeight">
+							<p id="promptWeight">Weight: </p>
+							<input type="text" name="weight" id="weightInput" placeholder="pounds">
+						</div>
+						<div id="addNewReps">
+							<p id="promptReps">Weps:</p>
+							<input type="text" name="reps" id="repsInput" placeholder="repetitions">
+						</div>
+						<div id="addNewType">
+							<p id="promptType">Type:</p>
+							<input type="text" name="type" id="typeInput" placeholder="type">
+						</div>
+						<div id="addNewDate">
+							<p id="promptDate">Date:</p>
+							<input type="test" name="date" id="dateInput" placeholder="date">
+						</div>
 						<button id="saveLift">Save</button>
 					</form>
 				</div>

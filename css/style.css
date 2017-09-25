@@ -144,6 +144,10 @@ h2.subhead {
 	height: 100%;
 }
 
+#chooseLift {
+	width: 200px;
+}
+
 #myChart {
 	text-align: center;
 	height: 250px;

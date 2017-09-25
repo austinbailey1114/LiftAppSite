@@ -43,6 +43,25 @@ curl_close ($ch);
 
 $bodyweights = json_decode(trim($bodyweights), true);
 
+/*get lifttypes for user*/
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lifttypes.php");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+
+
+$headers = array();
+$headers[] = "Content-Type: application/json";
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$lifttypes = curl_exec($ch);
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+curl_close ($ch);
+
+$lifttypes = json_decode(trim($lifttypes), true);
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +87,13 @@ $bodyweights = json_decode(trim($bodyweights), true);
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
+					<select name="chooseLiftToDisplay" id="chooseLift">
+						<?php
+							foreach ($lifttypes as $lifttype) {
+								echo '<option   value=\"'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
+							}
+						?>
+					</select>
 					<div id ="graphDiv">
 						<canvas id="myChart"></canvas>
 					</div>

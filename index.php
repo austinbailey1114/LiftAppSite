@@ -86,15 +86,15 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
-						<select name="chooseLift" onchange="rebuildGraph()">
+						<select name="chooseLift" id="chooseLiftToDisplay" onchange="rebuildGraph()">
+							<option selected="selected">Test</option>
 						<?php
-							//create options for each type
+							
 							foreach ($lifttypes as $lifttype) {
-								echo '<option   value=\"'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
+								echo '<option   value="'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
 							}
 						?>
 						</select>
-						<button id="updateGraph">Update</button>
 					<div id ="graphDiv">
 						<canvas id="myChart"></canvas>
 					</div>
@@ -159,61 +159,51 @@ $lifttypes = json_decode(trim($lifttypes), true);
 		</div>
 	</body>
 	<script type="text/javascript">
-			
-			function buildaxes() {
-			<?
-				$liftxaxis = array();
-				$liftyaxis = array();
+		<?
+			$liftxaxis = array();
+			$liftyaxis = array();
+			$types = array();
 
-				if (isset($_POST['chooseLift'])) {
-					$value = $_POST['chooseLift'];
-				}
-				else {
-					$value = 1;
-				}
-
-				foreach ($lifts as $lift) {
-					if ($lift["type"] == $value) {
-						$date = strtotime($lift["date"]);
-						$liftxaxis[] = date("m-d", $date);
-
-						$weight = $lift["weight"];
-						$reps = $lift["reps"];
-						$onerepmax = $weight * (1 + ($reps/30));
-						$liftyaxis[] = $onerepmax;
-					}
-					
-				}
-
-				$weightxaxis = array();
-				$weightyaxis = array();
-
-				foreach ($bodyweights as $bodyweight) {
-					$date = strtotime($bodyweight["date"]);
-					$weightxaxis[] = date("m-d", $date);
-					$weightyaxis[] = $bodyweight["weight"];
-
-				}
-			
-			?>
+			if (isset($_POST['chooseLift'])) {
+				$value = $_POST['chooseLift'];
+			}
+			else {
+				$value = 1;
 			}
 
-			buildaxes();
+			foreach ($lifts as $lift) {
+				$date = strtotime($lift["date"]);
+				$liftxaxis[] = date("m-d", $date);
 
-			var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
-			var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
-			var weightxaxis = <?php echo json_encode($weightxaxis); ?>;
-			var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
+				$weight = $lift["weight"];
+				$reps = $lift["reps"];
+				$onerepmax = $weight * (1 + ($reps/30));
+				$liftyaxis[] = $onerepmax;
+
+				$types[] = $lift["type"];
+			}
+
+			$weightxaxis = array();
+			$weightyaxis = array();
+
+			foreach ($bodyweights as $bodyweight) {
+				$date = strtotime($bodyweight["date"]);
+				$weightxaxis[] = date("m-d", $date);
+				$weightyaxis[] = $bodyweight["weight"];
+			}
+		
+		?>
 
 		function rebuildGraph() {
 			//need to figure this out
-			buildaxes();
 			buildliftChart();
-			liftxaxis= <?php echo json_encode($liftxaxis); ?>;
-			liftyaxis= <?php echo json_encode($liftyaxis); ?>;
-			weightxaxis = <?php echo json_encode($weightxaxis); ?>;
-			weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 		}
+
+		var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
+		var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
+		var types = <?php echo json_encode($types); ?>;
+		var weightxaxis = <?php echo json_encode($weightxaxis); ?>;
+		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>
 </html>

@@ -87,13 +87,16 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
-					<select name="chooseLiftToDisplay" id="chooseLift">
+					<form action="./lift.php" method="post">
+						<select name="chooseLiftToDisplay">
 						<?php
 							foreach ($lifttypes as $lifttype) {
 								echo '<option   value=\"'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
 							}
 						?>
-					</select>
+						</select>
+						<button id="updateGraph">Update</button>
+					</form>
 					<div id ="graphDiv">
 						<canvas id="myChart"></canvas>
 					</div>
@@ -105,7 +108,7 @@ $lifttypes = json_decode(trim($lifttypes), true);
 							<input type="text" name="weight" id="weightInput" placeholder="pounds">
 						</div>
 						<div id="addNewReps">
-							<p id="promptReps">Weps:</p>
+							<p id="promptReps">Reps:</p>
 							<input type="text" name="reps" id="repsInput" placeholder="repetitions">
 						</div>
 						<div id="addNewType">
@@ -171,6 +174,8 @@ $lifttypes = json_decode(trim($lifttypes), true);
 				$onerepmax = $weight * (1 + ($reps/30));
 				$liftyaxis[] = $onerepmax;
 			}
+
+
 
 			$weightxaxis = array();
 			$weightyaxis = array();

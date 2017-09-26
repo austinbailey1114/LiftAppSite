@@ -12,7 +12,14 @@ if (!$conn) {
 }
 
 //user=1 filters out only your lifts
-$sql = "SELECT * FROM lifts WHERE user = 1";
+if(isset($_POST['chooseLiftToDisplay'])) {
+    $values = $_POST['chooseLiftToDisplay'];
+     // or $_GET['category'] if your form method was GET
+}
+else {
+	$values = "pull ups";
+}
+$sql = "SELECT * FROM lifts WHERE user = 1 AND type= 2";
 $result = mysqli_query($conn, $sql);
 
 $lifts = array();

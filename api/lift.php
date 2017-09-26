@@ -11,15 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-//user=1 filters out only your lifts
-if(isset($_POST['chooseLiftToDisplay'])) {
-    $values = $_POST['chooseLiftToDisplay'];
-     // or $_GET['category'] if your form method was GET
-}
-else {
-	$values = "pull ups";
-}
-$sql = "SELECT * FROM lifts WHERE user = 1 AND type= 2";
+$sql = "SELECT * FROM lifts WHERE user = 1";
 $result = mysqli_query($conn, $sql);
 
 $lifts = array();

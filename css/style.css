@@ -40,8 +40,8 @@ button {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
-
 }
+
 #dashboardDiv , #menuDiv{
 	display: inline-block;
 }
@@ -67,7 +67,7 @@ button {
 #dashboardDiv {
 	width: 85%;
 	float: right;
-	background-color: #f8f8f8
+	background-color: #f8f8f8;
 }
 
 #topContainer {

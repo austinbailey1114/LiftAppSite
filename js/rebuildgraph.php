@@ -12,7 +12,7 @@ if (!$conn) {
 }
 
 //user=1 filters out only your lifts
-$sql = 'SELECT * FROM lifts'
+$sql = "SELECT * FROM lifts WHERE user = 1 AND name= {$_POST["chooseLiftToDisplay"]}"
 $result = mysqli_query($conn, $sql);
 
 $lifts = array();

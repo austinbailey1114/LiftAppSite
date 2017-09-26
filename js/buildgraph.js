@@ -1,7 +1,8 @@
 function buildliftChart() {
     //get title
-    var e = document.getElementById("chooseLiftToDisplay");
-    var titleString = e.options[e.selectedIndex].text;
+    //var e = document.getElementById("chooseLiftToDisplay");
+    //var titleString = e.options[e.selectedIndex].value;
+    var titleString = "Temporary";
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var chart = new Chart(ctx, {
     // The type of chart we want to create

@@ -12,6 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+//check if the user input type of lift is already saved
 $sql = "SELECT * FROM lifttypes WHERE user = 1 AND name= {$_POST["type"]}";
 $result = mysqli_query($conn, $sql);
 
@@ -28,6 +29,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
 
+//if this is a new type for the user, add this to their lift types
 if (!in_array($_POST["type"], $check_array)) {
 	$sql = "INSERT INTO lifttypes (name, user)
 	VALUES ({$_POST["type"]}, 1)";
@@ -39,9 +41,7 @@ if (!in_array($_POST["type"], $check_array)) {
 	}
 }
 
-
-
-
+//insert the lift into lift history
 $sql = "INSERT INTO lifts (weight, reps, type, user)
 VALUES ({$_POST["weight"]}, {$_POST["reps"]}, {$_POST["type"]}, 1)";
 

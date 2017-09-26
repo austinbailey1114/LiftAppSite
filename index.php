@@ -87,9 +87,10 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
-					<form action="./lift.php" method="post">
-						<select name="chooseLiftToDisplay">
+					<form action="./rebuildgraph.php" method="post">
+						<select name="chooseLiftToDisplay" id="chooseLiftToDisplay">
 						<?php
+							//create options for each type
 							foreach ($lifttypes as $lifttype) {
 								echo '<option   value=\"'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
 							}

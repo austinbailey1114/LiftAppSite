@@ -24,10 +24,11 @@ function buildliftChart() {
     data: {
         labels: xaxis,
         datasets: [{
-            label: titleString.replace(/_/g, " "),
             borderColor: 'rgb(231,76,60)',
+            backgroundColor: 'rgba(231,76,60,0.3',
             fill: true,
             data: yaxis,
+            pointBackgroundColor: 'rgb(231,76,60)',
 
         }]
     },
@@ -35,7 +36,10 @@ function buildliftChart() {
     // Configuration options go here
     options: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+         },
     }
 });
 }

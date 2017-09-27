@@ -86,7 +86,7 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
-						<select name="chooseLift" id="chooseLiftToDisplay" onchange="rebuildGraph()">
+						<select name="chooseLift" id="chooseLiftToDisplay" onchange="buildliftChart()">
 							<option selected="selected">Select to view</option>
 						<?php
 							foreach ($lifttypes as $lifttype) {
@@ -103,16 +103,15 @@ $lifttypes = json_decode(trim($lifttypes), true);
 					<form action="./addLift.php" method="post">
 						<div id="addNewWeight">
 							<p id="promptWeight">Weight: </p>
-							<input type="text" name="weight" id="weightInput" placeholder="pounds">
-
+							<input type="text" name="weight" id="weightInput" placeholder="pounds" autocomplete="off">
 						</div>
 						<div id="addNewReps">
 							<p id="promptReps">Reps:</p>
-							<input type="text" name="reps" id="repsInput" placeholder="repetitions">
+							<input type="text" name="reps" id="repsInput" placeholder="repetitions" autocomplete="off">
 						</div>
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
-							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes">
+							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes" autocomplete="off">
 							<datalist id="lifttypes">
 								<?php
 								foreach ($lifttypes as $lifttype) {
@@ -124,7 +123,7 @@ $lifttypes = json_decode(trim($lifttypes), true);
 						</div>
 						<div id="addNewDate">
 							<p id="promptDate">Date:</p>
-							<input type="test" name="date" id="dateInput" placeholder="date">
+							<input type="test" name="date" id="dateInput" placeholder="date" autocomplete="off">
 						</div>
 						<button id="saveLift">Save</button>
 					</form>
@@ -182,7 +181,7 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			if ($lifts > 0) {
 				foreach ($lifts as $lift) {
 					$date = strtotime($lift["date"]);
-					$liftxaxis[] = date("m-d", $date);
+					$liftxaxis[] = date("n/j", $date);
 
 					$weight = $lift["weight"];
 					$reps = $lift["reps"];
@@ -205,12 +204,6 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			}
 		
 		?>
-
-		function rebuildGraph() {
-			//need to figure this out
-			buildliftChart();
-		}
-
 		var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
 		var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
 		var types = <?php echo json_encode($types); ?>;

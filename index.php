@@ -43,7 +43,7 @@ curl_close ($ch);
 
 $bodyweights = json_decode(trim($bodyweights), true);
 
-/*get lifttypes for user*/
+/*use cURL to get lifttypes for user*/
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lifttypes.php");
@@ -62,6 +62,37 @@ if (curl_errno($ch)) {
 curl_close ($ch);
 
 $lifttypes = json_decode(trim($lifttypes), true);
+
+//build arrays with GET data to make graphs
+$liftxaxis = array();
+$liftyaxis = array();
+$types = array();
+
+if (count($lifts) > 0) {
+	foreach ($lifts as $lift) {
+		$date = strtotime($lift["date"]);
+		$liftxaxis[] = date("n/j", $date);
+
+		$weight = $lift["weight"];
+		$reps = $lift["reps"];
+		$onerepmax = $weight * (1 + ($reps/30));
+		$liftyaxis[] = $onerepmax;
+
+		$types[] = $lift["type"];
+	}
+}
+
+$weightxaxis = array();
+$weightyaxis = array();
+
+if (count($bodyweights) > 0) {
+	foreach ($bodyweights as $bodyweight) {
+		$date = strtotime($bodyweight["date"]);
+		$weightxaxis[] = date("m-d", $date);
+		$weightyaxis[] = $bodyweight["weight"];
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,9 +116,8 @@ $lifttypes = json_decode(trim($lifttypes), true);
 		<div id="dashboardDiv">
 			<div id="container">
 				<div class="lift">
-					<h2 align="center">Lift Progress</h2>
+					<h2 align="center">Your Lift Progress</h2>
 						<select name="chooseLift" id="chooseLiftToDisplay" onchange="buildliftChart()">
-							<option selected="selected">Select to view</option>
 						<?php
 							foreach ($lifttypes as $lifttype) {
 								$typestring = str_replace('_', ' ', $lifttype['name']);
@@ -131,16 +161,17 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			</div>
 			<div class="nutrition">
 				<div id="showData">
-					<h2>Your food intake today</h2>
-					<p>Today's calories: 2341</p>
-					<p>Today's fat: 41g</p>
-					<p>Today's carbs: 123g</p>
-					<p>Today's protein: 111g</p>
+					<p id="displayCals">Today's calories: 2341</p>
+					<p id="displayFat">Today's fat: 41g</p>
+					<p id="displayCarbs">Today's carbs: 123g</p>
+					<p id="displayProtein">Today's protein: 111g</p>
 				</div>
 				<div id="newFood">
 					<h2>Search Nutritionix API</h2>
-					<input type="text" name="searchField" id="searchInput" placeholder="Food, brand, etc.">
-					<button id="search">Search</button>
+					<form action="./nutritionix/search.php" method="post">
+						<input type="text" name="searchField" id="searchInput" placeholder="Food, brand, etc.">
+						<button id="search">Search</button>
+					</form>
 				</div>
 			</div>
 			<div id="weightDiv">
@@ -167,43 +198,6 @@ $lifttypes = json_decode(trim($lifttypes), true);
 		</div>
 	</body>
 	<script type="text/javascript">
-		<?
-			$liftxaxis = array();
-			$liftyaxis = array();
-			$types = array();
-
-			if (isset($_POST['chooseLift'])) {
-				$value = $_POST['chooseLift'];
-			}
-			else {
-				$value = 1;
-			}
-			if ($lifts > 0) {
-				foreach ($lifts as $lift) {
-					$date = strtotime($lift["date"]);
-					$liftxaxis[] = date("n/j", $date);
-
-					$weight = $lift["weight"];
-					$reps = $lift["reps"];
-					$onerepmax = $weight * (1 + ($reps/30));
-					$liftyaxis[] = $onerepmax;
-
-					$types[] = $lift["type"];
-				}
-			}
-
-			$weightxaxis = array();
-			$weightyaxis = array();
-
-			if ($bodyweights > 0) {
-				foreach ($bodyweights as $bodyweight) {
-					$date = strtotime($bodyweight["date"]);
-					$weightxaxis[] = date("m-d", $date);
-					$weightyaxis[] = $bodyweight["weight"];
-				}
-			}
-		
-		?>
 		var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
 		var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
 		var types = <?php echo json_encode($types); ?>;

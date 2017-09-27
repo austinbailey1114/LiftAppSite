@@ -259,10 +259,19 @@ h2.subhead {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
+}
+
+#displayCals, #displayFat, #displayCarbs, #displayProtein {
+	height: 52px;
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 14px;
+	background-color: pink;
+	display: block;
 	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 	background-color: white;
-
+	line-height: 50px;
 }
 
 #showData, #newFood {
@@ -272,11 +281,16 @@ h2.subhead {
 }
 
 #showData {
-	float: left;
-}
+	float: right;
+ }
 
 #newFood {
-	float: right;
+	float: left;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
+	height: 100%;
+	width: 55%;
 }
 
 #weightDiv {

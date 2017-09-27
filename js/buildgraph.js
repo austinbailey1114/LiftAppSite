@@ -1,5 +1,5 @@
 function buildliftChart() {
-    //get title
+    //get type
     var e = document.getElementById("chooseLiftToDisplay");
     var titleString = e.options[e.selectedIndex].text;
     titleString = titleString.replace(/ /g, "_");
@@ -7,9 +7,8 @@ function buildliftChart() {
     var xaxis = new Array();
     var yaxis = new Array();
 
+    //only add the elements that are the type the user wants to look at
     for (var i = 0; i < types.length; i++) {
-
-
         if (types[i] == titleString) {
             xaxis.push(liftxaxis[i]);
             yaxis.push(liftyaxis[i]);

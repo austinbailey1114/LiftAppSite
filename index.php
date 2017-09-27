@@ -168,7 +168,7 @@ if (count($bodyweights) > 0) {
 				</div>
 				<div id="newFood">
 					<h2>Search Nutritionix API</h2>
-					<form action="./nutritionix/search.php" method="post">
+					<form action="./search.php" method="post">
 						<input type="text" name="searchField" id="searchInput" placeholder="Food, brand, etc.">
 						<button id="search">Search</button>
 					</form>

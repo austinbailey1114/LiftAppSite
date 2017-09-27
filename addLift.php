@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
 //if this is a new type for the user, add this to their lift types
 if (!in_array($_POST["type"], $check_array)) {
 	$sql = "INSERT INTO lifttypes (name, user)
-	VALUES ({$_POST["type"]}, 1)";
+	VALUES ('{$_POST["type"]}', 1)";
 	if (mysqli_query($conn, $sql)) {
     	echo "New record created successfully";
 	} 

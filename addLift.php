@@ -13,7 +13,7 @@ if (!$conn) {
 }
 
 //check if the user input type of lift is already saved
-$sql = "SELECT * FROM lifttypes WHERE user = 1 AND name= {$_POST["type"]}";
+$sql = "SELECT * FROM lifttypes WHERE user = 1 AND name = {$_POST["type"]}";
 $result = mysqli_query($conn, $sql);
 
 $check_array = array();
@@ -43,7 +43,7 @@ if (!in_array($_POST["type"], $check_array)) {
 
 //insert the lift into lift history
 $sql = "INSERT INTO lifts (weight, reps, type, user)
-VALUES ({$_POST["weight"]}, {$_POST["reps"]}, {$_POST["type"]}, 1)";
+VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '{$_POST['type']}', 1)";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";

@@ -42,6 +42,15 @@ button {
     margin-bottom: 5px;
 }
 
+select {
+	-webkit-appearance: none; 
+   	-moz-appearance: none;
+   	appearance: none;
+   	width: 20%;
+   	height: 20px;
+   	text-align: center;
+ }
+
 #dashboardDiv , #menuDiv{
 	display: inline-block;
 }

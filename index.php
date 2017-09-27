@@ -195,7 +195,6 @@ $lifttypes = json_decode(trim($lifttypes), true);
 		?>
 
 		function rebuildGraph() {
-			//need to figure this out
 			buildliftChart();
 		}
 

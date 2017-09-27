@@ -91,7 +91,8 @@ $lifttypes = json_decode(trim($lifttypes), true);
 						<?php
 							
 							foreach ($lifttypes as $lifttype) {
-								echo '<option   value="'.$lifttype["name"].'">'.$lifttype["name"].'</option>';
+								$typestring = str_replace('_', ' ', $lifttype['name']);
+								echo '<option   value="'.$typestring.'">'.$typestring.'</option>';
 							}
 						?>
 						</select>

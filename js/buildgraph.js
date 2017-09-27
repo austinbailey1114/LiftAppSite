@@ -2,11 +2,14 @@ function buildliftChart() {
     //get title
     var e = document.getElementById("chooseLiftToDisplay");
     var titleString = e.options[e.selectedIndex].text;
+    titleString = titleString.replace(/ /g, "_");
 
     var xaxis = new Array();
     var yaxis = new Array();
 
     for (var i = 0; i < types.length; i++) {
+
+
         if (types[i] == titleString) {
             xaxis.push(liftxaxis[i]);
             yaxis.push(liftyaxis[i]);

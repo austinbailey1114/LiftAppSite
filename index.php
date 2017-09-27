@@ -87,9 +87,8 @@ $lifttypes = json_decode(trim($lifttypes), true);
 				<div class="lift">
 					<h2 align="center">Lift Progress</h2>
 						<select name="chooseLift" id="chooseLiftToDisplay" onchange="rebuildGraph()">
-							<option selected="selected">Test</option>
+							<option selected="selected">Select to view</option>
 						<?php
-							
 							foreach ($lifttypes as $lifttype) {
 								$typestring = str_replace('_', ' ', $lifttype['name']);
 								echo '<option   value="'.$typestring.'">'.$typestring.'</option>';
@@ -105,6 +104,7 @@ $lifttypes = json_decode(trim($lifttypes), true);
 						<div id="addNewWeight">
 							<p id="promptWeight">Weight: </p>
 							<input type="text" name="weight" id="weightInput" placeholder="pounds">
+
 						</div>
 						<div id="addNewReps">
 							<p id="promptReps">Reps:</p>
@@ -112,7 +112,15 @@ $lifttypes = json_decode(trim($lifttypes), true);
 						</div>
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
-							<input type="text" name="type" id="typeInput" placeholder="type">
+							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes">
+							<datalist id="lifttypes">
+								<?php
+								foreach ($lifttypes as $lifttype) {
+									$typestring = str_replace('_', ' ', $lifttype['name']);
+									echo '<option   value="'.$typestring.'">';
+								}
+								?>
+							</datalist>
 						</div>
 						<div id="addNewDate">
 							<p id="promptDate">Date:</p>
@@ -171,26 +179,29 @@ $lifttypes = json_decode(trim($lifttypes), true);
 			else {
 				$value = 1;
 			}
+			if ($lifts > 0) {
+				foreach ($lifts as $lift) {
+					$date = strtotime($lift["date"]);
+					$liftxaxis[] = date("m-d", $date);
 
-			foreach ($lifts as $lift) {
-				$date = strtotime($lift["date"]);
-				$liftxaxis[] = date("m-d", $date);
+					$weight = $lift["weight"];
+					$reps = $lift["reps"];
+					$onerepmax = $weight * (1 + ($reps/30));
+					$liftyaxis[] = $onerepmax;
 
-				$weight = $lift["weight"];
-				$reps = $lift["reps"];
-				$onerepmax = $weight * (1 + ($reps/30));
-				$liftyaxis[] = $onerepmax;
-
-				$types[] = $lift["type"];
+					$types[] = $lift["type"];
+				}
 			}
 
 			$weightxaxis = array();
 			$weightyaxis = array();
 
-			foreach ($bodyweights as $bodyweight) {
-				$date = strtotime($bodyweight["date"]);
-				$weightxaxis[] = date("m-d", $date);
-				$weightyaxis[] = $bodyweight["weight"];
+			if ($bodyweights > 0) {
+				foreach ($bodyweights as $bodyweight) {
+					$date = strtotime($bodyweight["date"]);
+					$weightxaxis[] = date("m-d", $date);
+					$weightyaxis[] = $bodyweight["weight"];
+				}
 			}
 		
 		?>

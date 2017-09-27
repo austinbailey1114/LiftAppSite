@@ -24,9 +24,9 @@ function buildliftChart() {
     data: {
         labels: xaxis,
         datasets: [{
-            label: titleString,
+            label: titleString.replace(/_/g, " "),
             borderColor: 'rgb(231,76,60)',
-            fill: false,
+            fill: true,
             data: yaxis,
 
         }]
@@ -53,7 +53,7 @@ function buildweightChart() {
         labels: weightxaxis,
         datasets: [{
             label: "Body Weight",
-            fill: false,
+            fill: true,
             borderColor: 'rgb(231,76,60)',
             data: weightyaxis,
         }]

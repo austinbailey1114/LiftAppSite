@@ -35,14 +35,15 @@ $foods = $foods['hits'];
 </head>
 <body>
 	<div id="topContainer">
-		<h2>Search Results</h2>
+		<h2>Search Results for '<?php echo $_POST['searchField']; ?>'</h2>
 	</div>
 	<div id='results'>
-		<table>
+		<table id="resultsTable">
 			<tr>
 				<th>Brand</th>
 				<th>Description</th>
 				<th>Serving</th>
+				<th>Save</th>
 			</tr>
 			<?php
 				foreach ($foods as $food) {
@@ -50,8 +51,10 @@ $foods = $foods['hits'];
 					echo '<tr>';
 					echo '<td>'.$food['fields']['brand_name'].'</td>';
 					echo '<td>'.$food['fields']['item_name'].'</td>';
-					echo '<td>'.$food['fields']['nf_serving_size_qty']. " " . $food['fields']['nf_serving_size_unit'].'</td>';					
+					echo '<td>'.$food['fields']['nf_serving_size_qty']. " " . $food['fields']['nf_serving_size_unit'].'</td>';
+					echo '<td><button>Add</button></td>';					
 					echo '</tr>';
+
 				}
 			?>
 		</table>

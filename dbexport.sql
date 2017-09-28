@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 27, 2017 at 09:26 PM
+-- Generation Time: Sep 28, 2017 at 05:33 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -51,6 +51,35 @@ INSERT INTO `bodyweights` (`id`, `weight`, `user`, `date`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `foods`
+--
+
+CREATE TABLE `foods` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `name` varchar(1000) NOT NULL,
+  `calories` float NOT NULL,
+  `fat` float NOT NULL,
+  `carbs` float NOT NULL,
+  `protein` float NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `foods`
+--
+
+INSERT INTO `foods` (`id`, `user`, `name`, `calories`, `fat`, `carbs`, `protein`, `date`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Chocolate Drink', 100, 4, 5, 15, '2017-09-28 15:27:40', '0000-00-00 00:00:00', NULL),
+(2, 1, 'Tortilla Chips, Tostitos, Blue Corn', 140, 7, 19, 2, '2017-09-28 15:28:01', '0000-00-00 00:00:00', NULL),
+(3, 1, 'Oikos Triple Zero Yogurt - 1 container', 119.2, 0.43, 12.14, 16.41, '2017-09-28 15:32:51', '0000-00-00 00:00:00', NULL),
+(4, 1, 'Oikos Triple Zero Yogurt - 1 container', 119.2, 0.43, 12.14, 16.41, '2017-09-28 15:33:01', '0000-00-00 00:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lifts`
 --
 
@@ -88,7 +117,11 @@ INSERT INTO `lifts` (`id`, `weight`, `reps`, `type`, `date`, `user`, `created_at
 (43, 285, 3, 'Deadlift', '2017-09-27 19:25:56', 1, '0000-00-00 00:00:00', NULL),
 (44, 290, 6, 'Deadlift', '2017-09-27 19:26:04', 1, '0000-00-00 00:00:00', NULL),
 (45, 290, 5, 'Deadlift', '2017-09-27 19:26:13', 1, '0000-00-00 00:00:00', NULL),
-(46, 300, 5, 'Deadlift', '2017-09-27 19:26:23', 1, '0000-00-00 00:00:00', NULL);
+(46, 300, 5, 'Deadlift', '2017-09-27 19:26:23', 1, '0000-00-00 00:00:00', NULL),
+(48, 200, 6, 'Bench_press', '2017-09-27 19:29:41', 1, '0000-00-00 00:00:00', NULL),
+(49, 400, 1, 'Deadlift', '2017-09-27 19:39:09', 1, '0000-00-00 00:00:00', NULL),
+(50, 170, 5, 'Bench_press', '2017-09-27 19:46:01', 1, '0000-00-00 00:00:00', NULL),
+(52, 225, 4, 'Bench_press', '2017-09-28 01:47:17', 1, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,6 +177,12 @@ ALTER TABLE `bodyweights`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `foods`
+--
+ALTER TABLE `foods`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `lifts`
 --
 ALTER TABLE `lifts`
@@ -171,15 +210,20 @@ ALTER TABLE `users`
 ALTER TABLE `bodyweights`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `foods`
+--
+ALTER TABLE `foods`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `lifts`
 --
 ALTER TABLE `lifts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `lifttypes`
 --
 ALTER TABLE `lifttypes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `users`
 --

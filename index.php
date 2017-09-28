@@ -189,14 +189,11 @@ if (count($bodyweights) > 0) {
 			$isMessage = isset($_GET['message']);
 		?>
 
-		var message = <?php echo $isMessage; ?>;
+		var message = <?php echo json_encode($isMessage); ?>;
 
 		if (message) {
 			alert('Item saved successfully');
 		}
-
-
-
 
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>

@@ -23,12 +23,14 @@ curl_close ($ch);
 
 $foods = json_decode(trim($foods), true);
 
+$foods = $foods['hits'];
+
 if (count($foods) > 0) {
 	foreach ($foods as $food) {
-		# code...
-		echo $food[0]['item_id'];
+		echo '<div><p>'.$food["_id"].'</p></div>';
 	}
 }
+
 ?>
 <!DOCTYPE html>
 <html>

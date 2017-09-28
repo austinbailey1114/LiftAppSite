@@ -6,10 +6,10 @@ $name = "Austin Bailey";
 /* use cURL to grab lifts */
 $ch = curl_init();
 
+//set options to lift.php, string, GET
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lift.php");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
 
 $headers = array();
 $headers[] = "Content-Type: application/json";
@@ -19,41 +19,21 @@ $lifts = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
-curl_close ($ch);
 
 $lifts = json_decode(trim($lifts), true);
 
-/*use cURL to grab bodyweights*/
-$ch = curl_init();
-
+//update url to bodyweight.php
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/bodyweight.php");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
-
-$headers = array();
-$headers[] = "Content-Type: application/json";
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $bodyweights = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
-curl_close ($ch);
 
 $bodyweights = json_decode(trim($bodyweights), true);
 
-/*use cURL to get lifttypes for user*/
-$ch = curl_init();
-
+//update url to lifttypes.php
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lifttypes.php");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
-
-$headers = array();
-$headers[] = "Content-Type: application/json";
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $lifttypes = curl_exec($ch);
 if (curl_errno($ch)) {

@@ -16,15 +16,11 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
 $foods = curl_exec($ch);
-if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-}
 curl_close ($ch);
 
 $foods = json_decode(trim($foods), true);
 
 $foods = $foods['hits'];
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +48,7 @@ $foods = $foods['hits'];
 					echo '<td>'.$food['fields']['brand_name'].'</td>';
 					echo '<td>'.$food['fields']['item_name'].'</td>';
 					echo '<td>'.$food['fields']['nf_serving_size_qty']. " " . $food['fields']['nf_serving_size_unit'].'</td>';
-					echo '<td><button>Add</button></td>';					
+					echo '<td><a href=addFood.php?id='.$food['_id'].'><button>Add</button></a></td>';					
 					echo '</tr>';
 
 				}

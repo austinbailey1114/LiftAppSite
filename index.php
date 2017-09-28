@@ -184,6 +184,20 @@ if (count($bodyweights) > 0) {
 		var types = <?php echo json_encode($types); ?>;
 		var weightxaxis = <?php echo json_encode($weightxaxis); ?>;
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
+
+		<?
+			$isMessage = isset($_GET['message']);
+		?>
+
+		var message = <?php echo $isMessage; ?>;
+
+		if (message) {
+			alert('Item saved successfully');
+		}
+
+
+
+
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>
 </html>

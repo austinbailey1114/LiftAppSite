@@ -36,10 +36,10 @@ $sql = "INSERT INTO foods (name, calories, fat, carbs, protein, user)
 VALUES ('$name', {$food_info['nf_calories']}, {$food_info['nf_total_fat']}, {$food_info['nf_total_carbohydrate']}, {$food_info['nf_protein']}, 1)";
 
 if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    $message = 'successful';
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    $message = 'failed';
 }
 
 mysqli_close($conn);
-header("Location: ./index.php");
+header("Location: ./index.php?message=".$message);

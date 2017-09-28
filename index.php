@@ -43,7 +43,7 @@ curl_close ($ch);
 
 $lifttypes = json_decode(trim($lifttypes), true);
 
-//build arrays with GET data to make graphs
+//build arrays with the GET data to make graphs
 $liftxaxis = array();
 $liftyaxis = array();
 $types = array();
@@ -178,6 +178,7 @@ if (count($bodyweights) > 0) {
 		</div>
 	</body>
 	<script type="text/javascript">
+		//convert php arrays to javascript arrays
 		var liftxaxis= <?php echo json_encode($liftxaxis); ?>;
 		var liftyaxis= <?php echo json_encode($liftyaxis); ?>;
 		var types = <?php echo json_encode($types); ?>;

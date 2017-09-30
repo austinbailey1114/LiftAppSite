@@ -55,6 +55,8 @@ curl_close ($ch);
 
 $foodhistory = json_decode(trim($foodhistory), true);
 
+$foodhistory = array_reverse($foodhistory);
+
 //build arrays with the GET data to make graphs
 $liftxaxis = array();
 $liftyaxis = array();
@@ -90,7 +92,7 @@ if (count($bodyweights) > 0) {
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	</head>
 	<body>
@@ -164,6 +166,7 @@ if (count($bodyweights) > 0) {
 						<input type="text" name="searchField" id="searchInput" placeholder="Food, brand, etc.">
 						<button id="search">Search</button>
 					</form>
+					<h3>Food History</h3>
 					<div id="foodHistory">
 						<?php
 							foreach ($foodhistory as $food) {

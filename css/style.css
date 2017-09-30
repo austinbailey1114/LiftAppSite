@@ -2,6 +2,7 @@ body {
 	font-family: 'Roboto' !important;
 	margin:0;
 	padding: 0;
+	text-align: right;
 }
 
 div {
@@ -71,26 +72,8 @@ button:focus {
 	display: inline-block;
 }
 
-#menuDiv {
-	width: 14.92%;
-	float: left;
-	height: 1150px;
-	background-color: white;
-	border-right: 1px solid #C0C0C0;
-}
-
-#menuDiv a {
-	font-family: 'Roboto', sans-serif;
-	color: #E74C3C;
-	text-decoration: none;
-	display: block;
-	text-align: left;
-	margin-top: 30px;
-	margin-left: 20px;
-}
-
 #dashboardDiv {
-	width: 85%;
+	width: 100%;
 	float: right;
 	background-color: #f8f8f8;
 }
@@ -100,7 +83,15 @@ button:focus {
 	height: 90px;
 }
 
-
+#abouttheapp a {
+	font-family: 'Roboto', sans-serif;
+	color: #E74C3C;
+	text-decoration: none;
+	text-align: left;
+	margin-top: 30px;
+	margin-left: 20px;
+	line-height: 0px;
+}
 
 #headerContainer {
 	width: 280px;
@@ -108,9 +99,14 @@ button:focus {
 	padding: 0px;
 }
 
+#aboutLink, #appLink {
+	display: inline-block;
+	margin-left: 40px;
+}
+
 #icon, #mainTitle {
 	display: inline-block;
-	line-height: 45px;
+	line-height: 45x;
 	vertical-align: middle;
 
 }
@@ -132,8 +128,12 @@ button:focus {
 	line-height: 85px;
 
 }
-#headerContainer, #linksContainer {
+#headerContainer, #linksContainer, #abouttheapp {
 	display: inline-block;
+}
+
+#abouttheapp {
+	margin-right: 40px;
 }
 
 #headerContainer {
@@ -143,18 +143,19 @@ button:focus {
 	float: right;
 	border-left: 1px solid #C0C0C0;
 	width: 19%;
-	text-align: center;
 	height: 100%;
 }
 
 #accountLink {
 	float: right;
-	margin-right: 19%;
+	margin-right: 15%;
+	line-height: 60px;
+
 }
 
 #userIcon {
 	float: left;
-	margin-left: 19%;
+	margin-left: 20%;
 	margin-top: 15px;
 }
 
@@ -179,9 +180,9 @@ h2.subhead {
 }
 
 #container {
-	width: 95%;
+	width: 90%;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 	height: 325px;
 	margin-top: 40px;
 
@@ -263,9 +264,9 @@ h2.subhead {
 }
 
 .nutrition {
-	width: 95%;
+	width: 90%;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 70px;
 	height: 325px;
 }
 
@@ -285,7 +286,10 @@ h2.subhead {
 #showData, #newFood {
 	display: inline-block;
 	text-align: center;
-	width: 500px;
+}
+
+#showData {
+	width: 40%;
 }
 
 #enterfood, #foodbutton {
@@ -369,7 +373,7 @@ h2.subhead {
 }
 
 #weightDiv {
-	width: 95%;
+	width: 90%;
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;

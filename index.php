@@ -55,7 +55,9 @@ curl_close ($ch);
 
 $foodhistory = json_decode(trim($foodhistory), true);
 
-$foodhistory = array_reverse($foodhistory);
+if(count($foodhistory) > 0) {
+	$foodhistory = array_reverse($foodhistory);
+}
 
 //build arrays with the GET data to make graphs
 $liftxaxis = array();
@@ -102,8 +104,12 @@ if (count($bodyweights) > 0) {
 				<img src="./images/hugeIcon.png" height="62" width="62" id="icon">
 
 			</div>	
+			<div id="abouttheapp">
+			<a href="https://www.google.com" id="aboutLink"><h3>About</h3></a>
+			<a href="https://www.google.com" id="appLink"><h3>The App</h3></a>
+			</div>
 			<div id="linksContainer">
-				<a href="https://www.google.com/" id="accountLink"><? echo $name; ?></a>
+				<a href="https://www.google.com/"><h3 id="accountLink"><? echo $name; ?></h3></a>
 				<img src="./images/userIcon.png" height="52" width="52" id="userIcon">
 			</div>
 		</div>
@@ -175,10 +181,15 @@ if (count($bodyweights) > 0) {
 					<h3>Food History</h3>
 					<div id="foodHistory">
 						<?php
+						if(count($foodhistory) > 0) {
 							foreach ($foodhistory as $food) {
 								# code...
 								echo "<p>" . $food['name'] . "</p>";
 							}
+						}
+						else {
+							echo "<p>No foods to display<p>";
+						}
 
 						?>
 					</div>
@@ -201,11 +212,7 @@ if (count($bodyweights) > 0) {
 				
 			</div>
 		</div>
-		<div id="menuDiv">
-			<a href="https://www.google.com/">The App</a>
-			<a href="https://www.google.com/">About</a>
-			<a href="https://www.google.com/">Options</a>
-		</div>
+		
 	</body>
 	<script type="text/javascript">
 		//convert php arrays to javascript arrays

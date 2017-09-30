@@ -39,9 +39,21 @@ $lifttypes = curl_exec($ch);
 if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
-curl_close ($ch);
 
 $lifttypes = json_decode(trim($lifttypes), true);
+
+//update url to food.php
+curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/food.php");
+
+$foodhistory = curl_exec($ch);
+
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+
+curl_close ($ch);
+
+$foodhistory = json_decode(trim($foodhistory), true);
 
 //build arrays with the GET data to make graphs
 $liftxaxis = array();
@@ -152,6 +164,15 @@ if (count($bodyweights) > 0) {
 						<input type="text" name="searchField" id="searchInput" placeholder="Food, brand, etc.">
 						<button id="search">Search</button>
 					</form>
+					<div id="foodHistory">
+						<?php
+							foreach ($foodhistory as $food) {
+								# code...
+								echo "<p>" . $food['name'] . "</p>";
+							}
+
+						?>
+					</div>
 				</div>
 			</div>
 			<div id="weightDiv">

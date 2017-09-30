@@ -280,6 +280,11 @@ h2.subhead {
 	width: 500px;
 }
 
+#foodHistory {
+	overflow-y: scroll;
+	height: 200px;
+}
+
 #showData {
 	float: right;
  }

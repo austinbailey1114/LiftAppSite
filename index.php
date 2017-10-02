@@ -90,6 +90,7 @@ if (count($bodyweights) > 0) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -142,14 +143,14 @@ if (count($bodyweights) > 0) {
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
 							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes" autocomplete="off">
-							<datalist id="lifttypes">
+							<select id="lifttypes">
 								<?php
-								foreach ($lifttypes as $lifttype) {
-									$typestring = str_replace('_', ' ', $lifttype['name']);
-									echo '<option   value="'.$typestring.'">';
-								}
+									foreach ($lifttypes as $lifttype) {
+										$typestring = str_replace('_', ' ', $lifttype['name']);
+										echo '<option value="'.$lifttype["id"].'">'.$typestring.'</option>';
+									}
 								?>
-							</datalist>
+							</select>
 						</div>
 						<div id="addNewDate">
 							<p id="promptDate">Date:</p>
@@ -181,16 +182,15 @@ if (count($bodyweights) > 0) {
 					<h3>Food History</h3>
 					<div id="foodHistory">
 						<?php
-						if(count($foodhistory) > 0) {
-							foreach ($foodhistory as $food) {
-								# code...
-								echo "<p>" . $food['name'] . "</p>";
+							if(count($foodhistory) > 0) {
+								foreach ($foodhistory as $food) {
+									# code...
+									echo "<p>" . $food['name'] . "</p>";
+								}
 							}
-						}
-						else {
-							echo "<p>No foods to display<p>";
-						}
-
+							else {
+								echo "<p>No foods to display<p>";
+							}
 						?>
 					</div>
 				</div>

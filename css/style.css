@@ -2,7 +2,6 @@ body {
 	font-family: 'Roboto' !important;
 	margin:0;
 	padding: 0;
-	text-align: right;
 }
 
 div {
@@ -81,6 +80,7 @@ button:focus {
 #topContainer {
 	border-bottom: thin solid #C0C0C0;
 	height: 90px;
+	text-align: right;
 }
 
 #abouttheapp a {
@@ -286,6 +286,10 @@ h2.subhead {
 #showData, #newFood {
 	display: inline-block;
 	text-align: center;
+}
+
+#newFood {
+	text-align: left;
 }
 
 #showData {

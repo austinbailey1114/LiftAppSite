@@ -143,11 +143,11 @@ if (count($bodyweights) > 0) {
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
 							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes" autocomplete="off">
-							<select id="lifttypes">
+							<select id="lifttypes" onchange="fillType()">
 								<?php
 									foreach ($lifttypes as $lifttype) {
 										$typestring = str_replace('_', ' ', $lifttype['name']);
-										echo '<option value="'.$lifttype["id"].'">'.$typestring.'</option>';
+										echo '<option value="'.$typestring.'">'.$typestring.'</option>';
 									}
 								?>
 							</select>
@@ -224,13 +224,28 @@ if (count($bodyweights) > 0) {
 
 		<?
 			$isMessage = isset($_GET['message']);
+			$isNewLift = isset($_GET['lift']);
 		?>
 
-		var message = <?php echo json_encode($isMessage); ?>;
+		var isMessage = <?php echo json_encode($isMessage); ?>;
+		var isNewLift = <?php echo json_encode($isNewLift); ?>;
 
-		if (message) {
+		if (isMessage) {
 			alert('Item saved successfully');
 		}
+		if (isNewLift) {
+			var liftGraphSelect = document.getElementById('chooseLiftToDisplay');
+			liftGraphSelect.value = <?php echo json_encode($_GET['lift']); ?>;
+			liftGraphSelect.text = <?php echo json_encode($_GET['lift']); ?>;
+		}
+
+		function fillType() {
+			var type = document.getElementById("lifttypes");
+    		var choice = type.options[type.selectedIndex].text;
+    		document.getElementById("typeInput").value = choice;
+		}
+
+		fillType();
 
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>

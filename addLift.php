@@ -54,7 +54,6 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
-
 mysqli_close($conn);
-header("Location: ./index.php");
+header("Location: ./index.php?lift=".$typeinput);
 ?>

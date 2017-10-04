@@ -225,19 +225,25 @@ if (count($bodyweights) > 0) {
 		<?
 			$isMessage = isset($_GET['message']);
 			$isNewLift = isset($_GET['lift']);
+
+			if(isset($_GET["message"])) {
+				?>
+					alert('Item saved successfully');
+				<?
+			} else {
+				//message isnt set
+			}
+
+			if(isset($_GET["lift"])) {
+				?>
+					var liftGraphSelect = document.getElementById('chooseLiftToDisplay');
+					liftGraphSelect.value = <?php echo json_encode($_GET['lift']); ?>;
+					liftGraphSelect.text = <?php echo json_encode($_GET['lift']); ?>;
+				<?
+			} else {
+				//lift isnt set
+			}
 		?>
-
-		var isMessage = <?php echo json_encode($isMessage); ?>;
-		var isNewLift = <?php echo json_encode($isNewLift); ?>;
-
-		if (isMessage) {
-			alert('Item saved successfully');
-		}
-		if (isNewLift) {
-			var liftGraphSelect = document.getElementById('chooseLiftToDisplay');
-			liftGraphSelect.value = <?php echo json_encode($_GET['lift']); ?>;
-			liftGraphSelect.text = <?php echo json_encode($_GET['lift']); ?>;
-		}
 
 		function fillType() {
 			var type = document.getElementById("lifttypes");

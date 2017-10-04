@@ -24,15 +24,17 @@ $lifts = $_SESSION['userLifts'];
 				<th>Weight</th>
 				<th>Reps</th>
 				<th>Date</th>
+				<th></th>
 			</tr>
 			<?php
 			foreach ($lifts as $lift) {
 				# code...
 				echo "<tr>";
-				echo "<th>".$lift['type']."</th>";
-				echo "<th>".$lift['weight']."</th>";
-				echo "<th>".$lift['reps']."</th>";
-				echo "<th>".$lift['date']."</th>";
+				echo "<td>".$lift['type']."</td>";
+				echo "<td>".$lift['weight']."</td>";
+				echo "<td>".$lift['reps']."</td>";
+				echo "<td>".$lift['date']."</td>";
+				echo "<td><a href=deleteLift.php?id=".$lift['id']."><button>Delete</button></a></td>";
 				echo "</tr>";
 			}
 			?>

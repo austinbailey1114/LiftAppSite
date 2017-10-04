@@ -2,6 +2,7 @@ body {
 	font-family: 'Roboto' !important;
 	margin:0;
 	padding: 0;
+	background-color: #f8f8f8;
 }
 
 div {
@@ -35,3 +36,28 @@ td, th {
     margin-right: 0px;
     font-weight: 200;
 }
+
+button {
+	color: #E74C3C;
+	height: 100%;
+	width: 100%;
+	border: 0px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#table {
+	width: 60%;
+  	margin-left: 20%;
+  	text-align: center;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+    background-color: white;
+}
+
+#liftTable {
+	width: 100%;
+}
+
+
+

@@ -55,9 +55,10 @@ function buildweightChart() {
     data: {
         labels: weightxaxis,
         datasets: [{
-            label: "Body Weight",
-            fill: true,
             borderColor: 'rgb(231,76,60)',
+            backgroundColor: 'rgba(231,76,60,0.3',
+            fill: true,
+            pointBackgroundColor: 'rgb(231,76,60)',
             data: weightyaxis,
         }]
     },
@@ -65,7 +66,10 @@ function buildweightChart() {
     // Configuration options go here
     options: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+         },
     }
 });
 }

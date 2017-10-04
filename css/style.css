@@ -381,10 +381,6 @@ h2.subhead {
 	margin: auto;
 	margin-bottom: 50px;
 	height: 325px;
-	border: 1px solid #DCDCDC;
-	margin-top: 40px;
-	border-radius: 5px;
-	background-color: white;
 }
 
 .bodyweightGraph, #newWeight {
@@ -393,17 +389,69 @@ h2.subhead {
 	width: 500px;
 }
 
-#bodyweightGraph {
-	float: right;
+.bodyweightGraph {
+	float: left;
+	height: 100%;
+	width: 50%;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
 }
 
 #newWeight {
-	float: right;	
+	float: right;
+	width: 45%;	
 }
 
 #bodyweightGraphDiv {
-	width: 90%;
+	height: 250px;
+	width: 100%;
 	text-align: center;
+}
+
+#weightTitle, #newBodyWeight {
+	display: inline-block;
+}
+
+#weightTitle {
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+#newBodyWeight {
+	float: right;
+	line-height: 55px;
+	border-bottom: 0px;
+	margin-right: 2px;
+}
+
+#promptBodyweight, #addBodyweightButtonDiv {
+	display: inline-block;
+}
+
+#promptBodyweight {
+	float: left;
+	margin-left: 0px;
+	background-color: pink;
+	width: 75%;
+	background-color: white;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#addBodyweightButtonDiv {
+	float: right;
+	width: 20%;
+}
+
+#add {
+	color: #E74C3C;
+	height: 68px;
+	width: 100%;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
+	background-color: white;
 }
 
 

@@ -197,16 +197,20 @@ if (count($bodyweights) > 0) {
 			</div>
 			<div id="weightDiv">
 				<div class="bodyweightGraph">
-					<h2>Bodyweight Graph</h2>
+					<h2>Bodyweight</h2>
 					<div id ="bodyweightGraphDiv">
 						<canvas id="bodyweightChart"></canvas>
 					</div>
 				</div>
 				<div id="newWeight">
 					<form action="./addWeight.php" method="post">
-						<h2>Update bodyweight</h2>
-						<input type="text" name="updateWeight" id="newBodyWeight" placeholder="pounds">
-						<button id="add">Update</button>
+						<div id="promptBodyweight">
+							<h2 id="weightTitle">Update: </h2>
+							<input type="text" name="updateWeight" id="newBodyWeight" placeholder="pounds">
+						</div>
+						<div id="addBodyweightButtonDiv">
+							<button id="add">Update</button>
+						</div>
 					</form>
 				</div>
 				

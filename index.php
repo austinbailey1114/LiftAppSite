@@ -22,6 +22,10 @@ if (curl_errno($ch)) {
 
 $lifts = json_decode(trim($lifts), true);
 
+session_start();
+$_SESSION['userLifts'] = $lifts;
+
+
 //update url to bodyweight.php
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/bodyweight.php");
 
@@ -118,6 +122,9 @@ if (count($bodyweights) > 0) {
 			<div id="container">
 				<div class="lift">
 					<h2 align="center">Your Lift Progress</h2>
+					<form id="lifttableform" action="liftTable.php">
+						<button id="lifttable">View as Table</button>
+					</form>
 						<select name="chooseLift" id="chooseLiftToDisplay" onchange="buildliftChart()">
 						<?php
 							foreach ($lifttypes as $lifttype) {

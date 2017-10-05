@@ -41,14 +41,12 @@ input {
 }
 
 button {
-	color: white;
-	padding:5px 15px; 
-    background: #E74C3C; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+	color: #E74C3C;
+  height: 100%;
+  width: 100%;
+  border: 0px solid #DCDCDC;
+  border-radius: 5px;
+  background-color: white;
 }
 
 select {
@@ -176,6 +174,20 @@ h2.subhead {
 
 #chooseLiftToDisplay, #lifttableform {
 	display: inline-block;
+}
+
+#liftProgressTitle, #lifttableform {
+	display: inline-block;
+}
+
+#lifttableform {
+	float: right;
+	line-height: 60px;
+	margin-right: 3%;
+}
+
+#liftProgressTitle {
+	margin-left: 12%;
 }
 
 #myChart {

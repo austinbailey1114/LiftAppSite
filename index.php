@@ -101,6 +101,9 @@ if (count($bodyweights) > 0) {
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+		
 	</head>
 	<body>
 		<div id="topContainer">
@@ -121,10 +124,12 @@ if (count($bodyweights) > 0) {
 		<div id="dashboardDiv">
 			<div id="container">
 				<div class="lift">
-					<h2 align="center">Your Lift Progress</h2>
-					<form id="lifttableform" action="liftTable.php">
-						<button id="lifttable">View as Table</button>
-					</form>
+					<div>
+						<h2 align="center" id="liftProgressTitle">Your Lift Progress</h2>
+						<form id="lifttableform" action="liftTable.php">
+							<button id="lifttable">View as Table</button>
+						</form>
+					</div>
 						<select name="chooseLift" id="chooseLiftToDisplay" onchange="buildliftChart()">
 						<?php
 							foreach ($lifttypes as $lifttype) {
@@ -161,6 +166,12 @@ if (count($bodyweights) > 0) {
 						</div>
 						<div id="addNewDate">
 							<p id="promptDate">Date:</p>
+							<script type="text/javascript">
+								jQuery(function($){
+								   $("#dateInput").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+								   
+								});
+							</script>
 							<input type="test" name="date" id="dateInput" placeholder="date" autocomplete="off">
 						</div>
 						<button id="saveLift">Save</button>

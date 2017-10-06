@@ -180,10 +180,25 @@ if (count($bodyweights) > 0) {
 			</div>
 			<div class="nutrition">
 				<div id="showData">
-					<p id="displayCals">Today's calories: 2341</p>
-					<p id="displayFat">Today's fat: 41g</p>
-					<p id="displayCarbs">Today's carbs: 123g</p>
-					<p id="displayProtein">Today's protein: 111g</p>
+					<?
+						$calories = 0;
+						$fat = 0;
+						$carbs = 0;
+						$protein = 0;
+
+						foreach ($foodhistory as $food) {
+							# code...
+							$calories += $food['calories'];
+							$fat += $food['fat'];
+							$carbs += $food['carbs'];
+							$protein += $food['protein'];
+						}
+
+						echo "<p id='displayCals'>Today's calories: ".$calories."</p>";
+						echo "<p id='displayFat'>Today's fat: ".$fat."g</p>";
+						echo "<p id='displayCarbs'>Today's carbs: ".$carbs."g</p>";
+						echo "<p id='displayProtein'>Today's protein: ".$protein."g</p>";
+					?>
 				</div>
 				<div id="newFood">
 					<form id="searchFood" action="./search.php" method="post">

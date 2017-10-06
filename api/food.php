@@ -11,7 +11,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM foods WHERE user = 1";
+//$sql = "SELECT * FROM foods WHERE user = 1";
+$sql = "SELECT * FROM foods WHERE user = 1 AND date > CURDATE()";
 $result = mysqli_query($conn, $sql);
 
 $foodhistory = array();

@@ -172,7 +172,7 @@ if (count($bodyweights) > 0) {
 								   
 								});
 							</script>
-							<input type="test" name="date" id="dateInput" placeholder="date" autocomplete="off">
+							<input type="test" name="date" id="dateInput" placeholder="leave blank for today" autocomplete="off">
 						</div>
 						<button id="saveLift">Save</button>
 					</form>

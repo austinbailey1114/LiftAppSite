@@ -53,6 +53,7 @@ if (mysqli_query($conn, $sql)) {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+$typeinput = str_replace("_", " ", $typeinput);
 
 mysqli_close($conn);
 header("Location: ./index.php?lift=".$typeinput);

@@ -44,8 +44,19 @@ if (!in_array($typeinput, $check_array)) {
 }
 
 //insert the lift into lift history
-$sql = "INSERT INTO lifts (weight, reps, type, user)
-VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', 1)";
+
+if ($_POST['date'] != '') {
+    $date = $_POST['date'];
+    $date = date('Y-m-d', strtotime($date));
+} else {
+    $date = date("Y-m-d H:i:s");
+
+}
+
+var_dump($date);
+//exit();
+$sql = "INSERT INTO lifts (weight, reps, type, user, date)
+VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', 1, '$date')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";

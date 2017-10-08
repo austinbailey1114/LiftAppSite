@@ -185,13 +185,14 @@ if (count($bodyweights) > 0) {
 						$fat = 0;
 						$carbs = 0;
 						$protein = 0;
-
-						foreach ($foodhistory as $food) {
-							# code...
-							$calories += $food['calories'];
-							$fat += $food['fat'];
-							$carbs += $food['carbs'];
-							$protein += $food['protein'];
+						if (count($foodhistory) > 0) {
+							foreach ($foodhistory as $food) {
+								# code...
+								$calories += $food['calories'];
+								$fat += $food['fat'];
+								$carbs += $food['carbs'];
+								$protein += $food['protein'];
+							}
 						}
 
 						echo "<p id='displayCals'>Today's calories: ".$calories."</p>";
@@ -212,7 +213,7 @@ if (count($bodyweights) > 0) {
 					</form>
 				</div>
 				<div id="foodHistoryContainer">
-					<h3>Food History</h3>
+					<h3>Food Today</h3>
 					<div id="foodHistory">
 						<?php
 							if(count($foodhistory) > 0) {
@@ -265,7 +266,7 @@ if (count($bodyweights) > 0) {
 
 			if(isset($_GET["message"])) {
 				?>
-					alert('Item saved successfully');
+					//alert('Item saved successfully');
 				<?
 			} else {
 				//message isnt set

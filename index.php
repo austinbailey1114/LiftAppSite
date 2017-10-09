@@ -22,6 +22,7 @@ if (curl_errno($ch)) {
 
 $lifts = json_decode(trim($lifts), true);
 
+//create SESSION variable for liftTable.php
 session_start();
 $_SESSION['userLifts'] = $lifts;
 
@@ -155,7 +156,8 @@ if (count($bodyweights) > 0) {
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
 							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes" autocomplete="off">
-							<select id="lifttypes" onchange="fillType()">
+							<div id="typeSelectDiv">
+								<select id="lifttypes" onchange="fillType()">
 								<?php
 									foreach ($lifttypes as $lifttype) {
 										$typestring = str_replace('_', ' ', $lifttype['name']);
@@ -163,6 +165,7 @@ if (count($bodyweights) > 0) {
 									}
 								?>
 							</select>
+							</div>
 						</div>
 						<div id="addNewDate">
 							<p id="promptDate">Date:</p>
@@ -172,7 +175,7 @@ if (count($bodyweights) > 0) {
 								   
 								});
 							</script>
-							<input type="test" name="date" id="dateInput" placeholder="leave blank for today" autocomplete="off">
+							<input type="test" name="date" id="dateInput" placeholder="leave blank if today" autocomplete="off">
 						</div>
 						<button id="saveLift">Save</button>
 					</form>

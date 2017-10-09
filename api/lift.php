@@ -11,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM lifts WHERE user = 1 ORDER BY date DESC";
+$sql = "SELECT * FROM lifts WHERE user = 1 ORDER BY date ASC";
 $result = mysqli_query($conn, $sql);
 
 $lifts = array();

@@ -264,12 +264,22 @@ if (count($bodyweights) > 0) {
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 
 		<?
-			$isMessage = isset($_GET['message']);
-			$isNewLift = isset($_GET['lift']);
-
 			if(isset($_GET["message"])) {
-				?>
-					//alert('Item saved successfully');
+				$message = $_GET['message'];
+				?> 
+					var message = <?php echo json_encode($message); ?>;
+					if (message == 'weightFailed') {
+						alert('Please input a number value for bodyweight');
+					} 
+
+					else if (message == 'numeric') {
+						alert('Please input a number value for weight and reps');
+					}
+
+					else {
+						//alert('Failed to save item');
+					}
+				
 				<?
 			} else {
 				//message isnt set

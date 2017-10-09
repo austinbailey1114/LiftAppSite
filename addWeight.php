@@ -12,6 +12,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$header = "Location: ./index.php?message=success";
+
+if (!is_numeric($_POST['updateWeight'])) {
+	$header = "Location: ./index.php?message=weightFailed";
+}
+
 $sql = "INSERT INTO bodyweights (weight, user)
 VALUES ({$_POST["updateWeight"]}, 1)";
 
@@ -22,5 +28,5 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-header("Location: ./index.php");
+header($header);
 ?>

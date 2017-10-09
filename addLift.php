@@ -53,8 +53,12 @@ if ($_POST['date'] != '') {
 
 }
 
-var_dump($date);
-//exit();
+$message = '';
+
+if (!is_numeric($_POST['weight']) || !is_numeric($_POST['reps'])) {
+    $message = "&message=numeric";
+}
+
 $sql = "INSERT INTO lifts (weight, reps, type, user, date)
 VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', 1, '$date')";
 
@@ -67,5 +71,5 @@ if (mysqli_query($conn, $sql)) {
 $typeinput = str_replace("_", " ", $typeinput);
 
 mysqli_close($conn);
-header("Location: ./index.php?lift=".$typeinput);
+header("Location: ./index.php?lift=".$typeinput.$message);
 ?>

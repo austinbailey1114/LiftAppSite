@@ -10,3 +10,4 @@ Much like the lift tracking, users can input their bodyweight and see how it cha
 ## In Development ##
 In the future, the website will accomodate multiple users, having a login page. 
 ## Pictures ## 
+![alt-text](https://github.com/austinbailey1114/LiftAppSite/blob/master/screenshots/shot1)

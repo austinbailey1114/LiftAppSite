@@ -4,9 +4,21 @@ body {
 	padding: 0;
 }
 
-.swal-button--cancel {
-  background-color: yellow;
-  color: black;
+.swal-button--confirm {
+  background-color: white;
+  color: #E74C3C;
+  font-weight: 200;
+  border: 1px solid #DCDCDC;
+}
+
+.swal {
+	color: #FBFBFB;
+	background-color: #FBFBFB;
+}
+
+.swal-title {
+	font-weight: 200;
+	color: black;
 }
 
 div {

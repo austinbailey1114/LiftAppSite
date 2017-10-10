@@ -266,26 +266,21 @@ if (count($bodyweights) > 0) {
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 
 		<?
-			if(isset($_GET["message"])) {
-				$message = $_GET['message'];
+			if(isset($_SESSION["message"])) {
+				$message = $_SESSION['message'];
 				?> 
 					var message = <?php echo json_encode($message); ?>;
-					if (message == 'weightFailed') {
-						swal('Please input a number value for weight', '', 'warning');
-					} 
-
-					else if (message == 'numeric') {
-						swal('Please input a number value for weight and reps', '', 'warning');
+					if (message == "success") {
+						swal('Item added successfully', '', 'success');
 					}
-
 					else {
-						swal("Item saved successfully", "", "success");
+						swal("Unable to add item. Please make sure your inputs are numbers", "", "warning");
 					}
+
 				
 				<?
-			} else {
-				//message isnt set
-			}
+				unset($_SESSION['message']);
+			} 
 
 			if(isset($_GET["lift"])) {
 				?>

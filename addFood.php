@@ -1,5 +1,8 @@
 <?
 //cURL nutritionix for added food data
+
+session_start();
+
 $url1 = "https://api.nutritionix.com/v1_1/item?id=";
 $url2 = "&appId=82868d5e&appKey=570ad5e7ef23f13c3e952eb71798b586";
 
@@ -39,8 +42,9 @@ if (mysqli_query($conn, $sql)) {
     $message = 'success';
 } else {
     $message = 'failed';
-
 }
+
+$_SESSION['message'] = $message;
 
 mysqli_close($conn);
 header("Location: ./index.php");

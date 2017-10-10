@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -53,17 +55,16 @@ if ($_POST['date'] != '') {
 
 }
 
-$message = '';
-
 if (!is_numeric($_POST['weight']) || !is_numeric($_POST['reps'])) {
-    $message = "&message=numeric";
-}
+    $_SESSION['message'] = "failed";
+} 
 
 $sql = "INSERT INTO lifts (weight, reps, type, user, date)
 VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', 1, '$date')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
+    $_SESSION['message'] = 'success';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
@@ -71,5 +72,5 @@ if (mysqli_query($conn, $sql)) {
 $typeinput = str_replace("_", " ", $typeinput);
 
 mysqli_close($conn);
-header("Location: ./index.php?lift=".$typeinput.$message);
+header("Location: ./index.php?lift=".$typeinput);
 ?>

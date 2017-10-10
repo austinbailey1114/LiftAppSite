@@ -39,7 +39,8 @@ if (mysqli_query($conn, $sql)) {
     $message = 'success';
 } else {
     $message = 'failed';
+
 }
 
 mysqli_close($conn);
-header("Location: ./index.php?message=".$message);
+header("Location: ./index.php");

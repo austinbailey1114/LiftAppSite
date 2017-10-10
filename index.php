@@ -1,7 +1,9 @@
 <?
 require './core/init.php';
-$name = "Austin Bailey";
 
+session_start();
+
+$name = "Austin Bailey";
 
 /* use cURL to grab lifts */
 $ch = curl_init();
@@ -23,7 +25,6 @@ if (curl_errno($ch)) {
 $lifts = json_decode(trim($lifts), true);
 
 //create SESSION variable for liftTable.php
-session_start();
 $_SESSION['userLifts'] = $lifts;
 
 
@@ -104,6 +105,7 @@ if (count($bodyweights) > 0) {
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		
 	</head>
 	<body>
@@ -269,15 +271,15 @@ if (count($bodyweights) > 0) {
 				?> 
 					var message = <?php echo json_encode($message); ?>;
 					if (message == 'weightFailed') {
-						alert('Please input a number value for bodyweight');
+						swal('Please input a number value for weight', '', 'warning');
 					} 
 
 					else if (message == 'numeric') {
-						alert('Please input a number value for weight and reps');
+						swal('Please input a number value for weight and reps', '', 'warning');
 					}
 
 					else {
-						//alert('Failed to save item');
+						swal("Item saved successfully", "", "success");
 					}
 				
 				<?

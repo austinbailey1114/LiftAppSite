@@ -3,6 +3,14 @@ require './core/init.php';
 
 session_start();
 
+if (!isset($_SESSION['id'])) {
+	header('Location: ./login.php');
+} else if (time() - $_SESSION['created'] > 10) {
+	session_unset();
+	session_destroy();
+	header("Location: ./login.php");
+}
+
 $name = "Austin Bailey";
 
 /* use cURL to grab lifts */

@@ -17,7 +17,7 @@ if (!$conn) {
 $typeinput = str_replace(' ', '_', $_POST['type']);
 
 //check if the user input type of lift is already saved
-$sql = "SELECT * FROM lifttypes WHERE user = 1 AND name = '$typeinput'";
+$sql = "SELECT * FROM lifttypes WHERE user = {$_SESSION['id']} AND name = '$typeinput'";
 $result = mysqli_query($conn, $sql);
 
 $check_array = array();
@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
 //if this is a new type for the user, add this to their lift types
 if (!in_array($typeinput, $check_array)) {
 	$sql = "INSERT INTO lifttypes (name, user)
-	VALUES ('$typeinput', 1)";
+	VALUES ('$typeinput', {$_SESSION['id']})";
 	if (mysqli_query($conn, $sql)) {
     	echo "New record created successfully";
 	} 
@@ -60,7 +60,7 @@ if (!is_numeric($_POST['weight']) || !is_numeric($_POST['reps'])) {
 } 
 
 $sql = "INSERT INTO lifts (weight, reps, type, user, date)
-VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', 1, '$date')";
+VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', {$_SESSION['id']}, '$date')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";

@@ -12,7 +12,7 @@ if (!$conn) {
 }
 
 //user=1 filters out only your lifts
-$sql = "SELECT * FROM lifttypes WHERE user = 1";
+$sql = "SELECT * FROM lifttypes WHERE user = {$_GET['id']}";
 $result = mysqli_query($conn, $sql);
 
 $lifttypes = array();

@@ -3,6 +3,7 @@
 session_start();
 
 $lifts = $_SESSION['userLifts'];
+var_dump($_SESSION['id']);
 
 ?>
 

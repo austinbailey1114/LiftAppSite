@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,7 +15,7 @@ if (!$conn) {
 }
 
 //user=1 filters out only your lifts
-$sql = "SELECT * FROM bodyweights WHERE user = 1";
+$sql = "SELECT * FROM bodyweights WHERE user = {$_GET['id']}";
 $result = mysqli_query($conn, $sql);
 
 $bodyweights = array();

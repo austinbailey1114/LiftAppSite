@@ -36,7 +36,7 @@ if (!$conn) {
 $name = $food_info['item_name'];
 
 $sql = "INSERT INTO foods (name, calories, fat, carbs, protein, user)
-VALUES ('$name', {$food_info['nf_calories']}, {$food_info['nf_total_fat']}, {$food_info['nf_total_carbohydrate']}, {$food_info['nf_protein']}, 1)";
+VALUES ('$name', {$food_info['nf_calories']}, {$food_info['nf_total_fat']}, {$food_info['nf_total_carbohydrate']}, {$food_info['nf_protein']}, {$_SESSION['id']})";
 
 if (mysqli_query($conn, $sql)) {
     $message = 'success';

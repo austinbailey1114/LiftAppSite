@@ -21,7 +21,7 @@ if (!is_numeric($_POST['updateWeight'])) {
 }
 
 $sql = "INSERT INTO bodyweights (weight, user)
-VALUES ({$_POST["updateWeight"]}, 1)";
+VALUES ({$_POST["updateWeight"]}, {$_SESSION['id']})";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";

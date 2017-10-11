@@ -12,7 +12,7 @@ if (!$conn) {
 }
 
 //$sql = "SELECT * FROM foods WHERE user = 1";
-$sql = "SELECT * FROM foods WHERE user = 1 AND date > CURDATE()";
+$sql = "SELECT * FROM foods WHERE user = {$_GET['id']} AND date > CURDATE()";
 $result = mysqli_query($conn, $sql);
 
 $foodhistory = array();

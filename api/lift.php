@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +14,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM lifts WHERE user = 1 ORDER BY date ASC";
+
+$sql = "SELECT * FROM lifts WHERE user = {$_GET['id']} ORDER BY date ASC";
 $result = mysqli_query($conn, $sql);
 
 $lifts = array();

@@ -16,10 +16,6 @@ $sql = "SELECT * FROM users WHERE username = '$name' AND password = '$pass'";
 
 $result = mysqli_query($conn, $sql);
 
-//$user = array();
-
-//echo mysqli_fetch_assoc($result);
-
 if (mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$_SESSION['id'] = (int) $row['id'];

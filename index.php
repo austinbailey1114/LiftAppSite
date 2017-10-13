@@ -129,7 +129,7 @@ if (count($bodyweights) > 0) {
 			<a href="https://www.google.com" id="appLink"><h3>The App</h3></a>
 			</div>
 			<div id="linksContainer">
-				<a href="https://www.google.com/"><h3 id="accountLink"><? echo $name; ?></h3></a>
+				<a href="./login.php"><h3 id="accountLink"><? echo $name; ?></h3></a>
 				<img src="./images/userIcon.png" height="52" width="52" id="userIcon">
 			</div>
 		</div>

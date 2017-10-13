@@ -18,21 +18,27 @@ $result = mysqli_query($conn, $sql);
 
 //$user = array();
 
-if (count($result) == 1) {
+//echo mysqli_fetch_assoc($result);
+
+if (mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$_SESSION['id'] = (int) $row['id'];
-		var_dump("SELECT * FROM bodyweights WHERE user = {$_SESSION['id']}");
-		var_dump("SELECT * FROM bodyweights WHERE user = 1");
-		var_dump("SELECT * FROM bodyweights WHERE user = " . $_SESSION['id']);
 		$id = $_SESSION['id'];
-		var_dump("SELECT * FROM bodyweights WHERE user = $id");
-		//exit();
 		$_SESSION['name'] = $row['name'];
 		$_SESSION['created'] = time();
+		mysqli_close($conn);
 		header("Location: ./index.php");
+		exit();
 	}
 } else {
-	header("Location: ./login.php");
+	mysqli_close($conn);
+	session_unset();
+	session_destroy();
+	header("Location: ./login.php?message=failed");
+	exit();
 }
+
+?>
+
 
 

@@ -1,5 +1,6 @@
 <?
 
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,13 @@
 </head>
 <body>
 	<div id="mainDiv">
-		<h1>Sign in to LiftApp</h1>
+		<?php
+		if (isset($_GET['message'])) {
+			echo "<h1>Login failed. Please try again.</h1>";
+		} else {
+			echo "<h1>Sign in to LiftApp</h1>";
+		}
+		?>
 		<form action="./performLogin.php" method="post">
 			<input type="text" name="username" id="usernameInput" placeholder="Username">
 			<input type="text" name="password" id="passwordInput" placeholder="Password">

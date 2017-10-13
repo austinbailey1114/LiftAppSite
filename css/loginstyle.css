@@ -2,7 +2,13 @@ body {
 	font-family: 'Roboto' !important;
 	margin:0;
 	padding: 0;
-	background-color: #f8f8f8
+	background-color: #fAfAfA;
+	text-align: left;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 27px;
 }
 
 input {
@@ -10,35 +16,39 @@ input {
     border:2px solid #ccc; 
     width: 200px;
     margin: auto;
-    border-bottom: 1px solid #ccc;
-    border-top: 0px solid #ccc;
-    border-right-width: 0px;
-    border-left-width: 0px;
     text-align: center;
+    border: 1px solid #DCDCDC;
+    background-color: white;
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 15px;
+  font-weight: 200;
 }
 
 button {
-	color: white;
-	padding:5px 15px; 
-    background: #E74C3C;
-    margin: auto; 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-
+	color: #E74C3C;
+  height: 100%;
+  width: 33%;
+  border: 0px solid #DCDCDC;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 50px;
+  border: 1px solid #DCDCDC;
 }
 
 #mainDiv {
 	width: 400px;
 	height: 250px;
-	border: 1px solid #DCDCDC;
-	text-align: center;
-	align-content: center;
+	text-align: left;
 	margin: auto;
 	margin-top: 15%;
 	border-radius: 10px;
-	background-color: white;
 }
 
 #usernameInput, #passwordInput, #login {

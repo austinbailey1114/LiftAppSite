@@ -66,7 +66,7 @@ if (curl_errno($ch)) {
     echo 'Error:' . curl_error($ch);
 }
 
-curl_close ($ch);
+curl_close($ch);
 
 $foodhistory = json_decode(trim($foodhistory), true);
 

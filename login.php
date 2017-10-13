@@ -1,3 +1,7 @@
+<?
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +10,7 @@
 </head>
 <body>
 	<div id="mainDiv">
-		<p>Sign in to LiftApp</p>
+		<h1>Sign in to LiftApp</h1>
 		<form action="./performLogin.php" method="post">
 			<input type="text" name="username" id="usernameInput" placeholder="Username">
 			<input type="text" name="password" id="passwordInput" placeholder="Password">

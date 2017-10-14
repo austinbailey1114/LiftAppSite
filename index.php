@@ -47,6 +47,8 @@ if (curl_errno($ch)) {
 
 $bodyweights = json_decode(trim($bodyweights), true);
 
+$_SESSION['userBodyweights'] = $bodyweights;
+
 //update url to lifttypes.php
 curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lifttypes.php?id=".$_SESSION['id']);
 
@@ -245,7 +247,10 @@ if (count($bodyweights) > 0) {
 			</div>
 			<div id="weightDiv">
 				<div class="bodyweightGraph">
-					<h2>Bodyweight</h2>
+					<h2 id="bodyweighttabletitle">Bodyweight</h2>
+						<form id="bodyweighttable" action="bodyweightTable.php">
+							<button id="bodyweighttable">View as Table</button>
+						</form>
 					<div id ="bodyweightGraphDiv">
 						<canvas id="bodyweightChart"></canvas>
 					</div>
@@ -275,15 +280,18 @@ if (count($bodyweights) > 0) {
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 
 		<?
-			if(isset($_SESSION["message"])) {
+			if(isset($_SESSION['message'])) {
 				$message = $_SESSION['message'];
 				?> 
 					var message = <?php echo json_encode($message); ?>;
 					if (message == "success") {
 						swal('Item added successfully', '', 'success');
 					}
-					else {
+					else if (message == "failed") {
 						swal("Unable to add item. Please make sure your inputs are numbers", "", "warning");
+					}
+					else if(message == "deleteSuccess") {
+						swal("Item deleted successfully", " ", "success");
 					}
 
 				

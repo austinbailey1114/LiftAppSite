@@ -481,6 +481,21 @@ h2.subhead {
 	text-align: center;
 }
 
+#bodyweighttabletitle, #bodyweighttable {
+	display: inline-block;
+}
+
+#bodyweighttable {
+	float: right;
+	line-height: 60px;
+	margin-right: 3%;
+}
+
+#bodyweighttabletitle {
+	float: left;
+	margin-left: 42%;
+}
+
 #weightTitle, #newBodyWeight {
 	display: inline-block;
 }

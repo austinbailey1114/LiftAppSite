@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,6 +26,8 @@ if (mysqli_query($conn, $sql)) {
 $result = mysqli_query($conn, $sql);
 
 mysqli_close($conn);
+$_SESSION['message'] = 'deleteSuccess';
+
 header("Location: ./index.php");
 
 ?>

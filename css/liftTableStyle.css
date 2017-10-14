@@ -11,17 +11,26 @@ div {
 }
 
 h2 {
-	font-weight: 300;
+	font-weight: 200;
+	background-color: white;
+	height: 65px;
+	width: 33%;
+	margin: auto;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	line-height: 63px;
+	border: 1px solid #DCDCDC;
+	border-radius: 5px;
 	
 }
 
 h1 {
-	font-weight: 300;
+	font-weight: 200;
 	
 }
 
 h3 {
-	font-weight: 300;
+	font-weight: 200;
 }
 
 p {
@@ -44,6 +53,7 @@ button {
 	border: 0px solid #DCDCDC;
 	border-radius: 5px;
 	background-color: white;
+	font-size: 14px;
 }
 
 #table {

@@ -30,7 +30,7 @@ $lifts = $_SESSION['userLifts'];
 			foreach ($lifts as $lift) {
 				# code...
 				echo "<tr>";
-				echo "<td>".$lift['type']."</td>";
+				echo "<td>".str_replace("_", " ", $lift['type'])."</td>";
 				echo "<td>".$lift['weight']."</td>";
 				echo "<td>".$lift['reps']."</td>";
 				echo "<td>".$lift['date']."</td>";

@@ -127,8 +127,8 @@ if (count($bodyweights) > 0) {
 
 			</div>	
 			<div id="abouttheapp">
-			<a href="https://www.google.com" id="aboutLink"><h3>About</h3></a>
-			<a href="https://www.google.com" id="appLink"><h3>The App</h3></a>
+			<a href="https://github.com/austinbailey1114/LiftAppSite" id="aboutLink"><h3>About</h3></a>
+			<a href="https://github.com/austinbailey1114/iOS" id="appLink"><h3>The App</h3></a>
 			</div>
 			<div id="linksContainer">
 				<a href="./login.php"><h3 id="accountLink"><? echo $name; ?></h3></a>

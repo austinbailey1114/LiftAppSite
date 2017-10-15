@@ -43,6 +43,8 @@ button {
   border: 0px solid #DCDCDC;
   border-radius: 5px;
   background-color: white;
+  font-size: 14px;
+  font-weight: 200;
 }
 
 select {

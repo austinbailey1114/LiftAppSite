@@ -26,6 +26,16 @@
 	</div>
 
 </body>
+<script type="text/javascript">
+	function setup() {
+		var userNameInput;
+		userNameInput = document.getElementById('usernameInput');
+		userNameInput.focus();
+	}
+
+	window.addEventListener('load', setup, false);
+
+</script>
 </html>
 
 

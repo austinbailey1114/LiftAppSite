@@ -269,7 +269,6 @@ if (count($bodyweights) > 0) {
 				
 			</div>
 		</div>
-		
 	</body>
 	<script type="text/javascript">
 		//convert php arrays to javascript arrays
@@ -319,7 +318,7 @@ if (count($bodyweights) > 0) {
 		function checkInput(value, pid, reset) {
 			if (isNaN(value)) {
 				var prompt = document.getElementById(pid);
-				prompt.textContent = "Invalid Input";
+				prompt.innerHTML = "<img src='./images/warning.png' height='20' width='20' style='margin-right: 5px;'>Invalid Input";
 			} else {
 				var prompt = document.getElementById(pid);
 				prompt.textContent = reset;
@@ -328,8 +327,10 @@ if (count($bodyweights) > 0) {
 
 		var repsInput = document.getElementById('repsInput');
 		var weightInput = document.getElementById('weightInput');
+		var bodyweightInput = document.getElementById('newBodyWeight');
 		repsInput.addEventListener('blur', function() { checkInput(repsInput.value, 'promptReps', 'Reps: '); }, false);
-		weightInput.addEventListener('blur', function() { checkInput(weightInput.value, 'promptWeight', 'Weight: '); })
+		weightInput.addEventListener('blur', function() { checkInput(weightInput.value, 'promptWeight', 'Weight: '); }, false);
+		bodyweightInput.addEventListener('blur', function() { checkInput(bodyweightInput.value, 'weightTitle', 'Update: ')}, false);
 
 		fillType();
 

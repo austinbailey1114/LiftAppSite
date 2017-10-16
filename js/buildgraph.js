@@ -40,7 +40,9 @@ function buildliftChart() {
             display: false
          },
     }
-});
+    });
+
+    $('#myChart').hide().fadeIn(1000);
 }
 
 buildliftChart();
@@ -71,7 +73,9 @@ function buildweightChart() {
             display: false
          },
     }
-});
+    });
+
+    $('#bodyweightChart').hide().fadeIn(1000);
 }
 
 buildweightChart();

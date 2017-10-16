@@ -316,6 +316,21 @@ if (count($bodyweights) > 0) {
     		document.getElementById("typeInput").value = choice;
 		}
 
+		function checkInput(value, pid, reset) {
+			if (isNaN(value)) {
+				var prompt = document.getElementById(pid);
+				prompt.textContent = "Invalid Input";
+			} else {
+				var prompt = document.getElementById(pid);
+				prompt.textContent = reset;
+			}
+		}
+
+		var repsInput = document.getElementById('repsInput');
+		var weightInput = document.getElementById('weightInput');
+		repsInput.addEventListener('blur', function() { checkInput(repsInput.value, 'promptReps', 'Reps: '); }, false);
+		weightInput.addEventListener('blur', function() { checkInput(weightInput.value, 'promptWeight', 'Weight: '); })
+
 		fillType();
 
 	</script>

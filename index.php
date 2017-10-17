@@ -131,7 +131,7 @@ if (count($bodyweights) > 0) {
 			<a href="https://github.com/austinbailey1114/iOS" id="appLink"><h3>The App</h3></a>
 			</div>
 			<div id="linksContainer">
-				<a href="./login.php"><h3 id="accountLink"><? echo $name; ?></h3></a>
+				<a href="./logout.php"><h3 id="accountLink"><? echo $name; ?></h3></a>
 				<img src="./images/userIcon.png" height="52" width="52" id="userIcon">
 			</div>
 		</div>
@@ -328,9 +328,9 @@ if (count($bodyweights) > 0) {
 		var repsInput = document.getElementById('repsInput');
 		var weightInput = document.getElementById('weightInput');
 		var bodyweightInput = document.getElementById('newBodyWeight');
-		repsInput.addEventListener('blur', function() { checkInput(repsInput.value, 'promptReps', 'Reps: '); }, false);
-		weightInput.addEventListener('blur', function() { checkInput(weightInput.value, 'promptWeight', 'Weight: '); }, false);
-		bodyweightInput.addEventListener('blur', function() { checkInput(bodyweightInput.value, 'weightTitle', 'Update: ')}, false);
+		repsInput.addEventListener('input', function() { checkInput(repsInput.value, 'promptReps', 'Reps: '); }, false);
+		weightInput.addEventListener('input', function() { checkInput(weightInput.value, 'promptWeight', 'Weight: '); }, false);
+		bodyweightInput.addEventListener('input', function() { checkInput(bodyweightInput.value, 'weightTitle', 'Update: ')}, false);
 
 		fillType();
 

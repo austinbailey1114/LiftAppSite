@@ -29,6 +29,17 @@ input {
   font-weight: 200;
 }
 
+a {
+  font-family: 'Roboto', sans-serif;
+  color: #E74C3C;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 30px;
+  line-height: 0px;
+  font-weight: 200;
+  line-height: 85px;
+}
+
 button {
 	color: #E74C3C;
   height: 100%;
@@ -62,4 +73,16 @@ button:focus {
 	display: block;
 	margin-top: 30px;
 
+}
+
+#login, #createAccount {
+  display: inline-block;
+}
+
+#login {
+  float: left;
+}
+
+#createAccount {
+  float: right;
 }

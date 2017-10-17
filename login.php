@@ -8,6 +8,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="./css/loginstyle.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="mainDiv">
@@ -22,6 +23,7 @@
 			<input type="text" name="username" id="usernameInput" placeholder="Username">
 			<input type="text" name="password" id="passwordInput" placeholder="Password">
 			<button id="login">Login</button>
+			<p id="createAccount"><a href="./accountCreate.php">Create an account</a></p>
 		</form>
 	</div>
 
@@ -34,6 +36,8 @@
 	}
 
 	window.addEventListener('load', setup, false);
+
+	$('div').hide().fadeIn(1000);
 
 </script>
 </html>

@@ -5,6 +5,9 @@ function buildliftChart() {
         var titleString = e.options[e.selectedIndex].text;
         titleString = titleString.replace(/ /g, "_");
     }
+    catch(err) {
+        titleString = "No Types";
+    }
     
 
     var xaxis = new Array();

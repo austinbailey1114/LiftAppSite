@@ -146,9 +146,14 @@ if (count($bodyweights) > 0) {
 					</div>
 						<select name="chooseLift" id="chooseLiftToDisplay" onchange="buildliftChart()">
 						<?php
-							foreach ($lifttypes as $lifttype) {
-								$typestring = str_replace('_', ' ', $lifttype['name']);
-								echo '<option   value="'.$typestring.'">'.$typestring.'</option>';
+
+							if (count($lifttypes) > 0) {
+								foreach ($lifttypes as $lifttype) {
+									$typestring = str_replace('_', ' ', $lifttype['name']);
+									echo '<option value="'.$typestring.'">'.$typestring.'</option>';
+								}
+							} else {
+								echo "<option value='null'>No Types Yet</option>";
 							}
 						?>
 						</select>
@@ -172,10 +177,17 @@ if (count($bodyweights) > 0) {
 							<div id="typeSelectDiv">
 								<select id="lifttypes" onchange="fillType()">
 								<?php
-									foreach ($lifttypes as $lifttype) {
+
+									if (count($lifttypes) > 0) {
+										foreach ($lifttypes as $lifttype) {
 										$typestring = str_replace('_', ' ', $lifttype['name']);
 										echo '<option value="'.$typestring.'">'.$typestring.'</option>';
+										}
+									} else {
+										echo "<option value='null'>No Types Yet</option>";
 									}
+
+									
 								?>
 							</select>
 							</div>
@@ -310,9 +322,17 @@ if (count($bodyweights) > 0) {
 		?>
 
 		function fillType() {
-			var type = document.getElementById("lifttypes");
-    		var choice = type.options[type.selectedIndex].text;
-    		document.getElementById("typeInput").value = choice;
+			try {
+				var type = document.getElementById("lifttypes");
+    			var choice = type.options[type.selectedIndex].text;
+    			if (choice != "No Types Yet") document.getElementById("typeInput").value = choice;
+    			else document.getElementById('typeInput').value = "";
+    			
+			}
+			catch(err) {
+				//document.getElementById("typeInput").value = "No Types";
+			}
+			
 		}
 
 		function checkInput(value, pid, reset) {

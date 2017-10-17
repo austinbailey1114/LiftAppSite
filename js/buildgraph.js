@@ -1,8 +1,11 @@
 function buildliftChart() {
     //get type
     var e = document.getElementById("chooseLiftToDisplay");
-    var titleString = e.options[e.selectedIndex].text;
-    titleString = titleString.replace(/ /g, "_");
+    try {
+        var titleString = e.options[e.selectedIndex].text;
+        titleString = titleString.replace(/ /g, "_");
+    }
+    
 
     var xaxis = new Array();
     var yaxis = new Array();

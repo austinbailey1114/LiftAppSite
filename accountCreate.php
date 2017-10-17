@@ -27,7 +27,7 @@
 	
 	function checkInput(value, id, reset) {
 		var xhttp = new XMLHttpRequest();
-		xhttp.open('GET', './api/users.php', false);
+		xhttp.open('POST', './api/users.php', false);
 		xhttp.send();
 		var users = JSON.parse(xhttp.responseText);
 		if (arrayContains(value, users)) {

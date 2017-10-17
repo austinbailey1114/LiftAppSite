@@ -327,7 +327,6 @@ if (count($bodyweights) > 0) {
     			var choice = type.options[type.selectedIndex].text;
     			if (choice != "No Types Yet") document.getElementById("typeInput").value = choice;
     			else document.getElementById('typeInput').value = "";
-    			
 			}
 			catch(err) {
 				//document.getElementById("typeInput").value = "No Types";

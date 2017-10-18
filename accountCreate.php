@@ -27,10 +27,10 @@
 	
 	function checkInput(value, id, reset) {
 		var xhttp = new XMLHttpRequest();
-		xhttp.open('POST', './api/users.php', false);
+		xhttp.open('POST', './api/users.php?user=' + value, false);
 		xhttp.send();
-		var users = JSON.parse(xhttp.responseText);
-		if (arrayContains(value, users)) {
+		var success = JSON.parse(xhttp.responseText);
+		if (success['success']) {
 			var prompt = document.getElementById(id);
 			prompt.innerHTML = "<img src='./images/warning.png' height='20' width='20' style='margin-right: 5px;'>Username Taken"
 		} else {

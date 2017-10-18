@@ -10,7 +10,7 @@ $dbname = "liftapp";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $name = $_POST['username'];
-$pass = $_POST['password'];
+$pass = md5($_POST['password']);
 
 $sql = "SELECT * FROM users WHERE username = '$name' AND password = '$pass'";
 

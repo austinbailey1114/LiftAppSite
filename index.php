@@ -11,7 +11,6 @@ if (!isset($_SESSION['id'])) {
 	header("Location: ./login.php");
 }
 
-
 $name = $_SESSION['name'];
 
 /* use cURL to grab lifts */

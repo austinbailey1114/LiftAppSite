@@ -2,7 +2,7 @@
 
 $name = $_POST['name'];
 $newUsername = $_POST['username'];
-$newPassword = $_POST['password'];
+$newPassword = md5($_POST['password']);
 
 session_start();
 

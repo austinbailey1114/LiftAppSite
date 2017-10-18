@@ -15,23 +15,22 @@ if (!$conn) {
 }
 
 //user=1 filters out only your lifts
-$sql = "SELECT username FROM users";
+$sql = "SELECT username FROM users WHERE username = '".$_GET['user']. "'";
+
 $result = mysqli_query($conn, $sql);
 
-$users = array();
-
 if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        //echo "id: " . $row["id"] . " - weight: " . $row["weight"] . " - reps: " . $row["reps"] . "<br>";
-        $users[] = $row['username'];
-    }
+  	$result = array(
+  		'success' => true
+  	);
 } else {
-    echo "0 results";
+    $result = array(
+  		'success' => false
+  	);
 }
 
 mysqli_close($conn);
-echo json_encode($users);
+echo json_encode($result);
 
 
 

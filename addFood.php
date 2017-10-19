@@ -3,8 +3,8 @@
 
 session_start();
 
-$url1 = "localhost";
-$url2 = "";
+$url1 = "localhost/NutritionAPI/api/foodById.php?id=";
+$url2 = "&api_key=1";
 
 $item_id = $_GET['id'];
 
@@ -33,10 +33,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$name = $food_info['item_name'];
+$food_info = $food_info[0];
 
-$sql = "INSERT INTO foods (name, calories, fat, carbs, protein, user)
-VALUES ('$name', {$food_info['nf_calories']}, {$food_info['nf_total_fat']}, {$food_info['nf_total_carbohydrate']}, {$food_info['nf_protein']}, {$_SESSION['id']})";
+$sql = "INSERT INTO foods (name, calories, fat, carbs, protein, user) VALUES ('{$food_info['name']}', {$food_info['calories']}, {$food_info['fat']}, {$food_info['carbohydrate']}, {$food_info['protein']}, {$_SESSION['id']})";
 
 if (mysqli_query($conn, $sql)) {
     $message = 'success';

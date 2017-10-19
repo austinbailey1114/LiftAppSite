@@ -3,8 +3,8 @@
 
 session_start();
 
-$url1 = "https://api.nutritionix.com/v1_1/item?id=";
-$url2 = "&appId=82868d5e&appKey=570ad5e7ef23f13c3e952eb71798b586";
+$url1 = "localhost";
+$url2 = "";
 
 $item_id = $_GET['id'];
 

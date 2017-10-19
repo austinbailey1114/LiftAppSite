@@ -21,7 +21,7 @@
 		?>
 		<form action="./performLogin.php" method="post">
 			<input type="text" name="username" id="usernameInput" placeholder="Username">
-			<input type="text" name="password" id="passwordInput" placeholder="Password">
+			<input type="password" name="password" id="passwordInput" placeholder="Password">
 			<button id="login">Login</button>
 			<p id="createAccount"><a href="./accountCreate.php">Create an account</a></p>
 		</form>

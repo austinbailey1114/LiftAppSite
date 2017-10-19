@@ -4,8 +4,8 @@ $name = "Austin Bailey";
 
 $ch = curl_init();
 
-$url1 = "https://api.nutritionix.com/v1_1/search/";
-$url2 =  "?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=592ced70&appKey=4dcb7f7bd109b3975dd3bad0020b6f2a";
+$url1 = "localhost/NutritionAPI/api/foods.php?search=";
+$url2 =  "&api_key=1";
 
 $searchInput = str_replace(" ", "_", $_POST['searchField']);
 
@@ -19,8 +19,6 @@ $foods = curl_exec($ch);
 curl_close ($ch);
 
 $foods = json_decode(trim($foods), true);
-
-$foods = $foods['hits'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,19 +34,25 @@ $foods = $foods['hits'];
 	<div id='results'>
 		<table id="resultsTable">
 			<tr>
-				<th>Brand</th>
-				<th>Description</th>
+				<th>Name</th>
+				<th>Calories</th>
+				<th>Fat</th>
+				<th>Carbs</th>
+				<th>Protein</th>
 				<th>Serving</th>
-				<th>Save</th>
+				<th>Add</th>
 			</tr>
 			<?php
 				foreach ($foods as $food) {
 					# code...
 					echo '<tr>';
-					echo '<td>'.$food['fields']['brand_name'].'</td>';
-					echo '<td>'.$food['fields']['item_name'].'</td>';
-					echo '<td>'.$food['fields']['nf_serving_size_qty']. " " . $food['fields']['nf_serving_size_unit'].'</td>';
-					echo '<td><a href=addFood.php?id='.$food['_id'].'><button>Add</button></a></td>';					
+					echo '<td>'.$food['name'].'</td>';
+					echo '<td>'.$food['calories'].'</td>';
+					echo '<td>'.$food['fat'].'</td>';
+					echo '<td>'.$food['carbohydrate'].'</td>';
+					echo '<td>'.$food['protein'].'</td>';
+					echo '<td>'.$food['serving_unit']. " " . $food['serving_value'].'</td>';
+					echo '<td><a href=addFood.php?id='.$food['id'].'><button>Add</button></a></td>';					
 					echo '</tr>';
 
 				}

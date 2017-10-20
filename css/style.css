@@ -318,6 +318,11 @@ h2.subhead {
 	width: 30%;
 }
 
+#typeSelectDiv button {
+	background-color: none;
+	margin: auto;
+}
+
 
 #lifttypes {
 	width: 25%;

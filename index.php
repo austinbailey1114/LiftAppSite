@@ -175,17 +175,17 @@ if (count($bodyweights) > 0) {
 							<div id="typeSelectDiv">
 								<select id="lifttypes" name='lifttypes' onchange="fillType()">
 								<?php
-
 									if (count($lifttypes) > 0) {
-										echo "<option value='null'>Select Below</option>";
-										echo "<option value='addnew'>Add New</option>";
+										$typeOptions = "<option value='null'>Select Below</option>";
+										$typeOptions = $typeOptions . "<option value='addnew'>Add New</option>";
 										foreach ($lifttypes as $lifttype) {
 											$typestring = str_replace('_', ' ', $lifttype['name']);
-											echo '<option value="'.$typestring.'">'.$typestring.'</option>';
+											$typeOptions = $typeOptions . '<option value="'.$typestring.'">'.$typestring.'</option>';
 										}
 									} else {
-										echo "<option value='null'>No Types Yet</option>";
+										$typeOptions = "<option value='null'>No Types Yet</option>";
 									}
+									echo $typeOptions;
 
 									
 								?>
@@ -289,6 +289,7 @@ if (count($bodyweights) > 0) {
 		var types = <?php echo json_encode($types); ?>;
 		var weightxaxis = <?php echo json_encode($weightxaxis); ?>;
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
+		var typeOptions = <?php echo json_encode($typeOptions); ?>;
 
 		<?
 			if(isset($_SESSION['message'])) {
@@ -331,13 +332,18 @@ if (count($bodyweights) > 0) {
     			var choice = type.options[type.selectedIndex].text;
     			if (choice == 'Add New') {
     				var selectDiv = document.getElementById('typeSelectDiv');
-    				selectDiv.innerHTML = '<input type="text" name="type" id="typeInput" placeholder="type" autocomplete="off">'
+    				selectDiv.innerHTML = "<button type=button onclick='unfillType()'><img src='./images/xicon.png' height='20' width='20' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='type' autocomplete='off'>";
     			}
 			}
 			catch(err) {
 				//document.getElementById("typeInput").value = "No Types";
 			}
 			
+		}
+
+		function unfillType() {
+			var selectDiv = document.getElementById('typeSelectDiv');
+			selectDiv.innerHTML = "<select id='lifttypes' name='lifttypes' onchange='fillType()'>"+ typeOptions + "</select>";
 		}
 
 		function checkInput(value, pid, reset) {

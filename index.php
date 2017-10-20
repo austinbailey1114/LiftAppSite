@@ -183,7 +183,8 @@ if (count($bodyweights) > 0) {
 											$typeOptions = $typeOptions . '<option value="'.$typestring.'">'.$typestring.'</option>';
 										}
 									} else {
-										$typeOptions = "<option value='null'>No Types Yet</option>";
+										$typeOptions = "<option value='null'>Select Below</option>";
+										$typeOptions = $typeOptions . "<option value='addnew'>Add New</option>";
 									}
 									echo $typeOptions;
 
@@ -332,7 +333,7 @@ if (count($bodyweights) > 0) {
     			var choice = type.options[type.selectedIndex].text;
     			if (choice == 'Add New') {
     				var selectDiv = document.getElementById('typeSelectDiv');
-    				selectDiv.innerHTML = "<button id='tempButton' type=button onclick='unfillType()'><img src='./images/xicon.png' height='20' width='20' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='type' autocomplete='off'>";
+    				selectDiv.innerHTML = "<button id='tempButton' type=button onclick='unfillType()'><img src='./images/xicon.png' height='15' width='15' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='new type' autocomplete='off'>";
     			}
 			}
 			catch(err) {

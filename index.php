@@ -172,15 +172,16 @@ if (count($bodyweights) > 0) {
 						</div>
 						<div id="addNewType">
 							<p id="promptType">Type:</p>
-							<input type="text" name="type" id="typeInput" placeholder="type" list = "lifttypes" autocomplete="off">
 							<div id="typeSelectDiv">
-								<select id="lifttypes" onchange="fillType()">
+								<select id="lifttypes" name='lifttypes' onchange="fillType()">
 								<?php
 
 									if (count($lifttypes) > 0) {
+										echo "<option value='null'>Select Below</option>";
+										echo "<option value='addnew'>Add New</option>";
 										foreach ($lifttypes as $lifttype) {
-										$typestring = str_replace('_', ' ', $lifttype['name']);
-										echo '<option value="'.$typestring.'">'.$typestring.'</option>';
+											$typestring = str_replace('_', ' ', $lifttype['name']);
+											echo '<option value="'.$typestring.'">'.$typestring.'</option>';
 										}
 									} else {
 										echo "<option value='null'>No Types Yet</option>";
@@ -314,6 +315,10 @@ if (count($bodyweights) > 0) {
 					var liftGraphSelect = document.getElementById('chooseLiftToDisplay');
 					liftGraphSelect.value = <?php echo json_encode($_GET['lift']); ?>;
 					liftGraphSelect.text = <?php echo json_encode($_GET['lift']); ?>;
+					var typeSelect = document.getElementById('lifttypes');
+					typeSelect.value = <?php echo json_encode($_GET['lift']); ?>;
+					typeSelect.text = <?php echo json_encode($_GET['lift']); ?>;
+
 				<?
 			} else {
 				//lift isnt set
@@ -324,8 +329,10 @@ if (count($bodyweights) > 0) {
 			try {
 				var type = document.getElementById("lifttypes");
     			var choice = type.options[type.selectedIndex].text;
-    			if (choice != "No Types Yet") document.getElementById("typeInput").value = choice;
-    			else document.getElementById('typeInput').value = "";
+    			if (choice == 'Add New') {
+    				var selectDiv = document.getElementById('typeSelectDiv');
+    				selectDiv.innerHTML = '<input type="text" name="type" id="typeInput" placeholder="type" autocomplete="off">'
+    			}
 			}
 			catch(err) {
 				//document.getElementById("typeInput").value = "No Types";

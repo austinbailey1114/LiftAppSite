@@ -14,7 +14,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$typeinput = str_replace(' ', '_', $_POST['type']);
+if (isset($_POST['type'])) {
+    $typeinput = str_replace(' ', '_', $_POST['type']);
+} else {
+    $typeinput = str_replace(' ', '_', $_POST['lifttypes']);
+}
 
 //check if the user input type of lift is already saved
 $sql = "SELECT * FROM lifttypes WHERE user = {$_SESSION['id']} AND name = '$typeinput'";
@@ -57,7 +61,7 @@ if ($_POST['date'] != '') {
 
 if (!is_numeric($_POST['weight']) || !is_numeric($_POST['reps'])) {
     $_SESSION['message'] = "failed";
-} 
+}
 
 $sql = "INSERT INTO lifts (weight, reps, type, user, date)
 VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeinput', {$_SESSION['id']}, '$date')";

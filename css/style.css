@@ -301,20 +301,28 @@ h2.subhead {
 }
 
 #typeInput {
-	width: 15%;
+	margin-left: 0px;
+}
+
+#typeInput {
+	width: 30%;
 }
 
 #typeSelectDiv {
 	margin-left: 20%;	
 	line-height: 20px;
 	height: 100%;
-	margin-top: 2.1%;
+	margin-right: 20px;
+}
+#typeSelectDiv select {
+	width: 30%;
 }
 
+
 #lifttypes {
-	margin-left: 20%;	
-	line-height: 20px;
 	width: 25%;
+	margin: auto; 
+	margin-top: 3%;
 }
 
 #promptDate, #dateInput {

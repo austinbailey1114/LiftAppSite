@@ -332,7 +332,7 @@ if (count($bodyweights) > 0) {
     			var choice = type.options[type.selectedIndex].text;
     			if (choice == 'Add New') {
     				var selectDiv = document.getElementById('typeSelectDiv');
-    				selectDiv.innerHTML = "<button type=button onclick='unfillType()'><img src='./images/xicon.png' height='20' width='20' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='type' autocomplete='off'>";
+    				selectDiv.innerHTML = "<button id='tempButton' type=button onclick='unfillType()'><img src='./images/xicon.png' height='20' width='20' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='type' autocomplete='off'>";
     			}
 			}
 			catch(err) {

@@ -318,9 +318,23 @@ h2.subhead {
 	width: 30%;
 }
 
+#tempButton, #typeInput {
+	display: inline-block;
+}
+
+#typeInput {
+	float: right;
+	width: 20%;
+}
+
 #typeSelectDiv button {
 	background-color: none;
 	margin: auto;
+	border: 0px solid gray;
+	width: 21px;
+	height: 21px;
+	margin-top: 12px;
+
 }
 
 

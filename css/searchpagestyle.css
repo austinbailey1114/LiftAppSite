@@ -22,6 +22,16 @@ h1 {
 	font-weight: 300;
 	
 }
+a {
+  font-family: 'Roboto', sans-serif;
+  color: #E74C3C;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 20px;
+  line-height: 0px;
+}
+
 
 input {
 	padding:5px 15px; 
@@ -39,7 +49,7 @@ input {
 button {
 	color: #E74C3C;
   height: 100%;
-  width: 100%;
+  width: 80%;
   border: 0px solid #DCDCDC;
   border-radius: 5px;
   background-color: white;
@@ -70,6 +80,10 @@ td, th {
     margin-left: 0px;
     margin-right: 0px;
     font-weight: 200;
+}
+
+#addNewFood {
+  margin-bottom: 10%;
 }
 
 #topContainer {

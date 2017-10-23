@@ -1,44 +1,35 @@
 <?
 
-$name = $_POST['name'];
-$newUsername = $_POST['username'];
-$newPassword = md5($_POST['password']);
+$url = 'localhost';
 
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "liftapp";
+$ch = curl_init();
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$data = array(
+	'name' => $_POST['name'],
+	'username' => $_POST['username'],
+	'password' => $_POST['password']
+);
 
-$sql = "INSERT INTO users (name, username, password)
-VALUES ('$name', '$newUsername', '$newPassword')";
+curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/insertUser.php");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-if (mysqli_query($conn, $sql)) {
-	$sql = "SELECT * FROM users WHERE username = '$newUsername' AND password = '$newPassword'";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			$_SESSION['id'] = (int) $row['id'];
-			$id = $_SESSION['id'];
-			$_SESSION['name'] = $row['name'];
-			$_SESSION['created'] = time();
-			mysqli_close($conn);
-			header("Location: ./index.php");
-			exit();
-		}
-	}
+$result = curl_exec($ch);
+$result = json_decode(trim($result), true);
+
+echo json_encode($result);
+
+if ($result['id'] != null) {
+	$_SESSION['id'] = $result['id'];
+	$_SESSION['name'] = $result['name'];
+	$_SESSION['created'] = $result['created'];
 	header("Location: ./index.php");
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-
+else {
+	header("Location: ./login.php?message=failed");
+}
 
 

@@ -33,17 +33,18 @@ $foods = json_decode(trim($foods), true);
 	</div>
 	<p id="newFoodLink"><a href="./addNewFood.php">Not seeing your food? Add one here</a></p>
 	<div id='results'>
-		<table id="resultsTable">
-			<tr>
-				<th>Name</th>
-				<th>Calories</th>
-				<th>Fat</th>
-				<th>Carbs</th>
-				<th>Protein</th>
-				<th>Serving</th>
-				<th>Add</th>
-			</tr>
 			<?php
+			if (count($foods) > 0) {
+				echo "<table id='resultsTable'>
+					<tr>
+						<th>Name</th>
+						<th>Calories</th>
+						<th>Fat</th>
+						<th>Carbs</th>
+						<th>Protein</th>
+						<th>Serving</th>
+						<th>Add</th>
+					</tr>";
 				foreach ($foods as $food) {
 					# code...
 					echo '<tr>';
@@ -55,10 +56,13 @@ $foods = json_decode(trim($foods), true);
 					echo '<td>'.$food['serving_unit']. " " . $food['serving_value'].'</td>';
 					echo '<td><a href=addFood.php?id='.$food['id'].'><button>Add</button></a></td>';					
 					echo '</tr>';
-
 				}
+				echo "</table>";
+			} else {
+				echo "<h2>No results</h2>";
+			}
+				
 			?>
-		</table>
 	</div>
 </body>
 </html>

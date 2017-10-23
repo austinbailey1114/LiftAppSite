@@ -7,6 +7,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="./css/addNewFoodStyle.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div style="width: 40%; margin:auto; height: 100%;">
@@ -39,4 +40,22 @@
 		</form>
 	</div>
 </body>
+<script type="text/javascript">
+	$('body').hide().fadeIn(1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 </html>

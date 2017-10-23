@@ -28,5 +28,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $result = curl_exec($ch);
 echo $result;
 
-//header("Location: ./index.php?lift=".$typeinput);
+$_SESSION['message'] = 'success';
+
+header("Location: ./index.php?lift=".$typeinput);
+
 ?>

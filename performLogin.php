@@ -1,37 +1,31 @@
 <?
 
+$url = 'localhost';
+
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "liftapp";
+$ch = curl_init();
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$data = array(
+	'username' => $_POST['username'],
+	'password' => $_POST['password']
+);
 
-$name = $_POST['username'];
-$pass = md5($_POST['password']);
+curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/checkLogin.php");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-$sql = "SELECT * FROM users WHERE username = '$name' AND password = '$pass'";
+$result = curl_exec($ch);
+$result = json_decode(trim($result), true);
 
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-	while ($row = mysqli_fetch_assoc($result)) {
-		$_SESSION['id'] = (int) $row['id'];
-		$id = $_SESSION['id'];
-		$_SESSION['name'] = $row['name'];
-		$_SESSION['created'] = time();
-		mysqli_close($conn);
-		header("Location: ./index.php");
-		exit();
-	}
+if ($result['id'] != null) {
+	$_SESSION['id'] = $result['id'];
+	$_SESSION['name'] = $result['name'];
+	$_SESSION['created'] = $result['created'];
+	header("Location: ./index.php");
 } else {
-	mysqli_close($conn);
-	session_unset();
-	session_destroy();
 	header("Location: ./login.php?message=failed");
-	exit();
 }
 
 ?>

@@ -14,24 +14,21 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$id = $_GET['id'];
 
-$sql = "SELECT * FROM lifts WHERE user = {$_GET['id']} ORDER BY date ASC";
-$result = mysqli_query($conn, $sql);
+if ($sql = mysqli_prepare($conn, "SELECT * FROM lifts WHERE user = ? ORDER BY date ASC")) {
+	mysqli_stmt_bind_param($sql, 'i', $id);
+	mysqli_stmt_execute($sql);
+	$result = mysqli_stmt_get_result($sql);
 
-$lifts = array();
-
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        //echo "id: " . $row["id"] . " - weight: " . $row["weight"] . " - reps: " . $row["reps"] . "<br>";
-        $lifts[] = $row;
+	$lifts = array();
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+		$lifts[] = $row;        
     }
-} else {
-    echo "0 results";
+    echo json_encode($lifts);
 }
 
 mysqli_close($conn);
-echo json_encode($lifts);
 //test comment to see if this stays
 ?>
 

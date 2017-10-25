@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,6 +14,7 @@ if (!$conn) {
 
 $id = $_GET['id'];
 
+//use prepared statements to prevent injection
 if ($sql = mysqli_prepare($conn, "SELECT * FROM lifts WHERE user = ? ORDER BY date ASC")) {
 	mysqli_stmt_bind_param($sql, 'i', $id);
 	mysqli_stmt_execute($sql);
@@ -29,6 +28,5 @@ if ($sql = mysqli_prepare($conn, "SELECT * FROM lifts WHERE user = ? ORDER BY da
 }
 
 mysqli_close($conn);
-//test comment to see if this stays
 ?>
 

@@ -1,4 +1,5 @@
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,22 +12,20 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-//user=1 filters out only your lifts
-$sql = "SELECT * FROM lifttypes WHERE user = {$_GET['id']}";
-$result = mysqli_query($conn, $sql);
+$id = $_GET['id'];
 
-$lifttypes = array();
+//use prepared statements to prevent injection
+if ($sql = mysqli_prepare($conn, "SELECT * FROM lifttypes WHERE user = ?")) {
+	mysqli_stmt_bind_param($sql, 'i', $id);
+	mysqli_stmt_execute($sql);
+	$result = mysqli_stmt_get_result($sql);
 
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        $lifttypes[] = $row;
+	$lifttypes = array();
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+		$lifttypes[] = $row;        
     }
-} else {
-    echo "0 results";
+    echo json_encode($lifttypes);
 }
 
 mysqli_close($conn);
-echo json_encode($lifttypes);
-//test comment to see if this stays
 ?>

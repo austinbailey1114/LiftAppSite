@@ -1,7 +1,5 @@
 <?
 
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,5 +27,14 @@ if ($sql = mysqli_prepare($conn, "SELECT id, name FROM users WHERE username = ? 
 }
 
 mysqli_close($conn);
+
+
+
+
+
+
+
+
+
 
 

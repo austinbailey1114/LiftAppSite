@@ -1,4 +1,5 @@
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,20 +12,22 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-//$sql = "SELECT * FROM foods WHERE user = 1";
-$sql = "SELECT * FROM foods WHERE user = {$_GET['id']} AND date > CURDATE()";
-$result = mysqli_query($conn, $sql);
+$id = $_GET['id'];
 
-$foodhistory = array();
+//use prepared statements to prevent injection
+if ($sql = mysqli_prepare($conn, "SELECT * FROM foods WHERE user = ? AND date > CURDATE()")) {
+	mysqli_stmt_bind_param($sql, 'i', $id);
+	mysqli_stmt_execute($sql);
+	$result = mysqli_stmt_get_result($sql);
 
-if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        $foodhistory[] = $row;
-    }
+	$foodhistory = array();
+	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+		$foodhistory[] = $row;
+	}
+	echo json_encode($foodhistory);
 } else {
-    echo "0 results";
+	echo "Error: " . mysqli_stmt_error($sql);
 }
 
 mysqli_close($conn);
-echo json_encode($foodhistory);
 ?>

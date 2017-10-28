@@ -16,26 +16,32 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO users (name, username, password)
-VALUES ('$name', '$newUsername', '$newPassword')";
+if ($sql = mysqli_prepare($conn, "INSERT INTO users (name, username, password) 
+	VALUES (?, ?, ?)")) {
 
-$returnData = array();
+	mysqli_stmt_bind_param($sql, 'sss', $name, $newUsername, $newPassword);
+	mysqli_stmt_execute($sql);
+	$result = mysqli_stmt_store_result($sql);
+	if ($result) {
+		if ($sql = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ? AND password = ?")) {
+			mysqli_stmt_bind_param($sql, 'ss', $newUsername, $newPassword);
+			mysqli_stmt_execute($sql);
+			$result = mysqli_stmt_get_result($sql);
 
-if (mysqli_query($conn, $sql)) {
-	$sql = "SELECT * FROM users WHERE username = '$newUsername' AND password = '$newPassword'";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			$returnData['id'] = (int) $row['id'];
-			$returnData['name'] = $row['name'];
-			$returnData['created'] = time();
+			$returnData = array();
+			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				$returnData['id'] = (int) $row['id'];
+				$returnData['name'] = $row['name'];
+				$returnData['created'] = time();
+			}
+			echo json_encode($returnData);
 		}
 	}
-} else {
-	$returnData['id'] = null;
+
+	
 }
 
-echo json_encode($returnData);
+mysqli_close($conn);
 
 
 

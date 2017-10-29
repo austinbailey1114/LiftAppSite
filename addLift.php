@@ -33,3 +33,7 @@ $_SESSION['message'] = 'success';
 header("Location: ./index.php?lift=".$typeinput);
 
 ?>
+
+
+
+

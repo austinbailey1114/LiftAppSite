@@ -37,8 +37,6 @@ if ($sql = mysqli_prepare($conn, "INSERT INTO users (name, username, password)
 			echo json_encode($returnData);
 		}
 	}
-
-	
 }
 
 mysqli_close($conn);

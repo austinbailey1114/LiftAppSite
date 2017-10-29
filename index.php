@@ -372,8 +372,16 @@ if (count($bodyweights) > 0) {
 
 		fillType();
 
+		//show the drop down on click
 		function showDropDown() {
 			document.getElementById('dropDownElements').classList.toggle('show');
+		}
+
+		//hide the dropdown when click is anywhere besides dropButton
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropButton')) {
+				showDropDown();
+			}
 		}
 
 	</script>

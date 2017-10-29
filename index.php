@@ -130,7 +130,13 @@ if (count($bodyweights) > 0) {
 			<a href="https://github.com/austinbailey1114/iOS" id="appLink"><h3>The App</h3></a>
 			</div>
 			<div id="linksContainer">
-				<a href="./logout.php"><h3 id="accountLink"><? echo $name; ?></h3></a>
+				<div class="dropdown">
+					<button onclick="showDropDown()" class="dropButton"> <? echo $name ?></button>
+					<div id="dropDownElements" class="dropDownContent">
+						<a href="./logout.php"><h3 id="accountLink">Log Out</h3></a>
+						<a href="./changePassword.php"><h3 id="passwordLink">Settings</h3></a>
+					</div>
+				</div>
 				<img src="./images/userIcon.png" height="52" width="52" id="userIcon">
 			</div>
 		</div>
@@ -365,6 +371,10 @@ if (count($bodyweights) > 0) {
 		bodyweightInput.addEventListener('input', function() { checkInput(bodyweightInput.value, 'weightTitle', 'Update: ')}, false);
 
 		fillType();
+
+		function showDropDown() {
+			document.getElementById('dropDownElements').classList.toggle('show');
+		}
 
 	</script>
 	<script type="text/javascript" src = "./js/buildgraph.js"></script>

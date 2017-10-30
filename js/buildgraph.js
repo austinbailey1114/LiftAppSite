@@ -13,11 +13,28 @@ function buildliftChart() {
     var xaxis = new Array();
     var yaxis = new Array();
 
-    //only add the elements that are the type the user wants to look at
+
+
     for (var i = 0; i < types.length; i++) {
+        //only add the elements that are the type the user wants to look at
         if (types[i] == titleString) {
-            xaxis.push(liftxaxis[i]);
-            yaxis.push(liftyaxis[i]);
+            try {
+                var length = xaxis.length;
+                //only add the max lift value of that type on that day
+                if (xaxis[length-1] == liftxaxis[i]) {
+                    if (yaxis[length-1] < liftyaxis[i]) {
+                        yaxis[length-1] = liftyaxis[i];
+                    }
+                }
+                else {
+                    xaxis.push(liftxaxis[i]);
+                    yaxis.push(liftyaxis[i]);
+                }
+            } catch(err) {
+                xaxis.push(liftxaxis[i]);
+                yaxis.push(liftyaxis[i]);
+            }
+            
         }
     }
 	var ctx = document.getElementById('myChart').getContext('2d');

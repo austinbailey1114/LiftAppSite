@@ -340,6 +340,7 @@ if (count($bodyweights) > 0) {
     			if (choice == 'Add New') {
     				var selectDiv = document.getElementById('typeSelectDiv');
     				selectDiv.innerHTML = "<button id='tempButton' type=button onclick='unfillType()'><img src='./images/xicon.png' height='15' width='15' style='margin-right: 5px;'></button><input type='text' name='type' id='typeInput' placeholder='new type' autocomplete='off'>";
+    				document.getElementById('typeInput').focus();
     			}
 			}
 			catch(err) {
@@ -380,7 +381,7 @@ if (count($bodyweights) > 0) {
 		//hide the dropdown when click is anywhere besides dropButton
 		window.onclick = function(event) {
 			if (!event.target.matches('.dropButton')) {
-				showDropDown();
+				document.getElementById('dropDownElements').classList.remove('show');
 			}
 		}
 

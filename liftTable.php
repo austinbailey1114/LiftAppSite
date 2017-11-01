@@ -18,31 +18,27 @@ $lifts = $_SESSION['userLifts'];
 	<div id="topContainer">
 		<h2 align="center">Lift History</h2>
 	</div>
-	<div id="table">
-		<table id="liftTable">
-			<tr>
-				<th>Type</th>
-				<th>Weight</th>
-				<th>Reps</th>
-				<th>Date</th>
-				<th></th>
-			</tr>
-			<?php
-			foreach ($lifts as $lift) {
-				# code...
-				echo "<tr>";
-				echo "<td>".str_replace("_", " ", $lift['type'])."</td>";
-				echo "<td>".$lift['weight']."</td>";
-				echo "<td>".$lift['reps']."</td>";
-				echo "<td>".$lift['date']."</td>";
-				echo "<td><a href=deleteLift.php?id=".$lift['id']."><button>Delete</button></a></td>";
-				echo "</tr>";
-			}
-			?>
-		</table>
-	</div>
-
-
+	<table id="table">
+		<tr>
+			<th>Type</th>
+			<th>Weight</th>
+			<th>Reps</th>
+			<th>Date</th>
+			<th></th>
+		</tr>
+		<?php
+		foreach ($lifts as $lift) {
+			# code...
+			echo "<tr>";
+			echo "<td>".str_replace("_", " ", $lift['type'])."</td>";
+			echo "<td>".$lift['weight']."</td>";
+			echo "<td>".$lift['reps']."</td>";
+			echo "<td>".$lift['date']."</td>";
+			echo "<td><a href=deleteLift.php?id=".$lift['id']."><button>Delete</button></a></td>";
+			echo "</tr>";
+		}
+		?>
+	</table>
 </body>
 <script type="text/javascript">
 

@@ -31,6 +31,7 @@ function buildliftChart() {
                     yaxis.push(liftyaxis[i]);
                 }
             } catch(err) {
+                console.log("except reached");
                 xaxis.push(liftxaxis[i]);
                 yaxis.push(liftyaxis[i]);
             }

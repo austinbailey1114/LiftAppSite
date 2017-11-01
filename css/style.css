@@ -32,8 +32,7 @@ h2 {
 }
 
 h1 {
-	font-weight: 300;
-	
+	font-weight: 300;	
 }
 
 h3 {
@@ -225,7 +224,7 @@ input {
 
 #userIcon {
 	float: left;
-	margin-left: 20%;
+	margin-left: 15%;
 	margin-top: 15px;
 }
 
@@ -621,7 +620,41 @@ h2.subhead {
 	background-color: pink;
 }
 
+@media only screen and (max-width: 1600px) {
+    #linksContainer {
+        width: 21%;
+    }
+}
 
+@media only screen and (max-width: 1400px) {
+    #linksContainer {
+        width: 23%;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    #linksContainer {
+        width: 25%;
+    }
+    select {
+    	width: 21%;
+    }
+    #typeSelectDiv select {
+		width: 35%;
+	}
+}
+
+@media only screen and (max-width: 1150px) {
+    #linksContainer {
+        width: 29%;
+    }
+    select {
+    	width: 23%;
+    }
+    #typeSelectDiv select {
+		width: 41%;
+	}
+}
 
 
 

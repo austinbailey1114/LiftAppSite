@@ -1,3 +1,7 @@
+* {
+	transition: 0.2s ease all;
+}
+
 body {
 	font-family: 'Roboto' !important;
 	margin:0;
@@ -264,6 +268,7 @@ h2.subhead {
 #myChart {
 	text-align: center;
 	height: 250px !important;
+	transition: 0s;
 }
 
 #container {
@@ -537,6 +542,10 @@ h2.subhead {
 	border: 1px solid #DCDCDC;
 	border-radius: 5px;
 	background-color: white;
+}
+
+#bodyweightChart {
+	transition: 0s;
 }
 
 #newWeight {

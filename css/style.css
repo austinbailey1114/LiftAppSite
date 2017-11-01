@@ -656,6 +656,89 @@ h2.subhead {
 	}
 }
 
+@media only screen and (max-width: 1150px) {
+    #linksContainer {
+        width: 29%;
+    }
+    select {
+    	width: 23%;
+    }
+    #typeSelectDiv select {
+		width: 41%;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+    #linksContainer {
+        width: 31%;
+    }
+    select {
+    	width: 25%;
+    }
+    #typeSelectDiv select {
+		width: 43%;
+	}
+
+	#weightInput, #repsInput, #dateInput {
+		width: 150px;
+	}
+	#newBodyWeight {
+		width: 100px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+    #linksContainer {
+        width: 35%;
+    }
+    select {
+    	width: 27%;
+    }
+    #typeSelectDiv select {
+		width: 47%;
+	}
+
+	#bodyweighttabletitle {
+		margin-left: 33%;
+	}
+
+	#newBodyWeight {
+		width: 80px;
+	}
+
+}
+
+@media only screen and (max-width: 800px) {
+    #linksContainer {
+        width: 37%;
+    }
+    select {
+    	width: 29%;
+    }
+    #typeSelectDiv select {
+		width: 49%;
+	}
+
+	#weightInput, #repsInput, #dateInput {
+		width: 150px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+    #linksContainer {
+        width: 37%;
+    }
+    select {
+    	width: 29%;
+    }
+    #typeSelectDiv select {
+		width: 49%;
+	}
+
+	#weightInput, #repsInput, #dateInput {
+		width: 150px;
+	}
+}
 
 
 

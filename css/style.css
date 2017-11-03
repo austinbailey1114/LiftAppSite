@@ -675,6 +675,9 @@ h2.subhead {
     #typeSelectDiv select {
 		width: 41%;
 	}
+	#newBodyWeight {
+		width: 100px;
+	}
 }
 
 @media only screen and (max-width: 1000px) {

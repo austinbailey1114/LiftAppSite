@@ -17,35 +17,21 @@ if (!$conn) {
 $typeInput = str_replace(" ", "_", $_POST['type']);
 
 //check if the user input type of lift is already saved
-$sql = "SELECT * FROM lifttypes WHERE user = {$_POST['id']} AND name = '$typeInput'";
-$result = mysqli_query($conn, $sql);
 
-$check_array = array();
+$id = $_POST['id'];
+//check if this lift exists for this user already
+if ($sql = mysqli_prepare($conn, "SELECT * FROM lifttypes WHERE user = ? AND name = ?")) {
+    mysqli_stmt_bind_param($sql, 'is', $id, $typeInput);
+    mysqli_stmt_execute($sql);
+    $result = mysqli_stmt_store_result($sql);
 
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        //echo "id: " . $row["id"] . " - weight: " . $row["weight"] . " - reps: " . $row["reps"] . "<br>";
-        $check_array[] = $row["name"];
-
+    //if this is a new type for the user, add this to their lift types
+    if (mysqli_stmt_num_rows($sql) < 1) {
+        $sql = mysqli_prepare($conn, "INSERT INTO lifttypes (name, user) VALUES (?, ?)");
+        mysqli_stmt_bind_param($sql, 'si', $typeInput, $id);
+        mysqli_stmt_execute($sql);
     }
-} else {
-    echo "0 results";
 }
-
-//if this is a new type for the user, add this to their lift types
-if (!in_array($typeInput, $check_array)) {
-	$sql = "INSERT INTO lifttypes (name, user)
-	VALUES ('$typeInput', {$_POST['id']})";
-	if (mysqli_query($conn, $sql)) {
-    	echo "New record created successfully";
-	} 
-	else {
-	    $message = 'failed';
-	}
-}
-
-//insert the lift into lift history
 
 if ($_POST['date'] != '') {
     $date = $_POST['date'];
@@ -59,15 +45,23 @@ if (!is_numeric($_POST['weight']) || !is_numeric($_POST['reps'])) {
     $message = 'failed';
 }
 
-$sql = "INSERT INTO lifts (weight, reps, type, user, date)
-VALUES ({$_POST["weight"]}, {$_POST["reps"]}, '$typeInput', {$_POST['id']}, '$date')";
+$weight = $_POST["weight"];
+$reps = $_POST["reps"];
 
-if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+if ($sql = mysqli_prepare($conn, "INSERT INTO lifts (weight, reps, type, user, date)
+VALUES (?, ?, ?, ?, ?)")) {
+    mysqli_stmt_bind_param($sql, 'iisis', $weight, $reps, $typeInput, $id, $date);
+    mysqli_stmt_execute($sql);
+    $result = mysqli_stmt_store_result($sql);
+
+    if ($result) {
+        echo "New record created successfully";
     $_SESSION['message'] = 'success';
-} else {
+    } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 }
 
 mysqli_close($conn);
+
 ?>

@@ -29,7 +29,7 @@ $foods = json_decode(trim($foods), true);
 </head>
 <body>
 	<div id="topContainer">
-		<h2>Search Results for '<?php echo $_POST['searchField']; ?>'</h2>
+		<h2>Search Results for '<?php echo htmlspecialchars($_POST['searchField']); ?>'</h2>
 	</div>
 	<p id="newFoodLink"><a href="./addNewFood.php">Not seeing your food? Add one here</a></p>
 	<div id='results'>

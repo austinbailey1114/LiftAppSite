@@ -16,16 +16,18 @@ if (!$conn) {
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM bodyweights WHERE id = $id";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . mysqli_error($conn);
+if ($sql = mysqli_prepare($conn, "DELETE FROM bodyweights WHERE id = $id")) {
+	mysqli_stmt_bind_param($sql, 'i', $id);
+	mysqli_stmt_execute($sql);
+	$result = mysqli_stmt_store_result($sql);
+	if ($result) {
+		$_SESSION['message'] = 'deleteSuccess';
+		echo "Record deleted successfully";
+	} else {
+		//delete failed
+		echo "Error deleting record: " . mysqli_stmt_error($sql);
+	}
 }
-
-mysqli_close($conn);
-$_SESSION['message'] = 'deleteSuccess';
 
 header("Location: ../index.php");
 

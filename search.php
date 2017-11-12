@@ -1,4 +1,4 @@
-<?
+<?php
 require './core/init.php';
 $name = "Austin Bailey";
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 session_start();
 
 $bodyweights = $_SESSION['userBodyweights'];
@@ -14,7 +14,7 @@ $bodyweights = $_SESSION['userBodyweights'];
 </head>
 <body>		
 	<h2 align="center">Bodyweight History</h2>
-	<?
+	<?php
 		if (count($bodyweights) > 0) {
 			echo "<table id='table'>";
 			echo "<tr>";

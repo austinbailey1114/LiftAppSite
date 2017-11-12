@@ -1,13 +1,8 @@
-<?
+<?php
 
 $name = $_POST['name'];
 $newUsername = $_POST['username'];
 $newPassword = md5($_POST['password']);
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "liftapp";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

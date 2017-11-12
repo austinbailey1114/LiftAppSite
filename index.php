@@ -1,4 +1,5 @@
-<?
+<?php 
+
 require './core/init.php';
 
 session_start();
@@ -17,7 +18,7 @@ $name = $_SESSION['name'];
 $ch = curl_init();
 
 //set options to lift.php, string, GET
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lift.php?id=".$_SESSION['id']);
+curl_setopt($ch, CURLOPT_URL, $url . "/api/lift.php?id=".$_SESSION['id']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
@@ -37,7 +38,7 @@ $_SESSION['userLifts'] = $lifts;
 
 
 //update url to bodyweight.php
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/bodyweight.php?id=".$_SESSION['id']);
+curl_setopt($ch, CURLOPT_URL, $url . "/api/bodyweight.php?id=".$_SESSION['id']);
 
 $bodyweights = curl_exec($ch);
 if (curl_errno($ch)) {
@@ -49,7 +50,7 @@ $bodyweights = json_decode(trim($bodyweights), true);
 $_SESSION['userBodyweights'] = $bodyweights;
 
 //update url to lifttypes.php
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/lifttypes.php?id=".$_SESSION['id']);
+curl_setopt($ch, CURLOPT_URL, $url . "/api/lifttypes.php?id=".$_SESSION['id']);
 
 $lifttypes = curl_exec($ch);
 if (curl_errno($ch)) {
@@ -59,7 +60,7 @@ if (curl_errno($ch)) {
 $lifttypes = json_decode(trim($lifttypes), true);
 
 //update url to food.php
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/food.php?id=".$_SESSION['id']);
+curl_setopt($ch, CURLOPT_URL, $url . "/api/food.php?id=".$_SESSION['id']);
 
 $foodhistory = curl_exec($ch);
 
@@ -132,7 +133,7 @@ if (count($bodyweights) > 0) {
 			</div>
 			<div id="linksContainer">
 				<div class="dropdown">
-					<button onclick="showDropDown()" class="dropButton"> <? echo $name ?></button>
+					<button onclick="showDropDown()" class="dropButton"> <?php echo $name ?></button>
 					<div id="dropDownElements" class="dropDownContent">
 						<a href="./logout.php"><h3 id="accountLink">Log Out</h3></a>
 						<a href="./settings.php"><h3 id="passwordLink">Settings</h3></a>
@@ -216,7 +217,7 @@ if (count($bodyweights) > 0) {
 			</div>
 			<div class="nutrition">
 				<div id="showData">
-					<?
+					<?php
 						$calories = 0;
 						$fat = 0;
 						$carbs = 0;
@@ -299,7 +300,7 @@ if (count($bodyweights) > 0) {
 		var weightyaxis = <?php echo json_encode($weightyaxis); ?>;
 		var typeOptions = <?php echo json_encode($typeOptions); ?>;
 
-		<?
+		<?php
 			if(isset($_SESSION['message'])) {
 				$message = $_SESSION['message'];
 				?> 
@@ -315,7 +316,7 @@ if (count($bodyweights) > 0) {
 					}
 
 				
-				<?
+				<?php
 				unset($_SESSION['message']);
 			} 
 
@@ -328,7 +329,7 @@ if (count($bodyweights) > 0) {
 					typeSelect.value = <?php echo json_encode($_GET['lift']); ?>;
 					typeSelect.text = <?php echo json_encode($_GET['lift']); ?>;
 
-				<?
+				<?php
 			} else {
 				//lift isnt set
 			}

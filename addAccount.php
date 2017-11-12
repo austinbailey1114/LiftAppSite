@@ -1,8 +1,5 @@
-<?
-
-$url = 'localhost';
-
-session_start();
+<?php
+require './core/init.php';
 
 $ch = curl_init();
 
@@ -12,12 +9,13 @@ $data = array(
 	'password' => $_POST['password']
 );
 
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/insertUser.php");
+curl_setopt($ch, CURLOPT_URL, $url . "/api/insertUser.php");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 $result = curl_exec($ch);
+
 $result = json_decode(trim($result), true);
 
 echo json_encode($result);

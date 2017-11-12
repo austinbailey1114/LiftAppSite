@@ -1,8 +1,6 @@
-<?
+<?php
 
-$url = 'localhost';
-
-session_start();
+require './core/init.php';
 
 $ch = curl_init();
 
@@ -11,7 +9,7 @@ $data = array(
 	'password' => $_POST['password']
 );
 
-curl_setopt($ch, CURLOPT_URL, $url . "/LiftAppSite/api/checkLogin.php");
+curl_setopt($ch, CURLOPT_URL, $url . "/api/checkLogin.php");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

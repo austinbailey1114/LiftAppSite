@@ -1,4 +1,4 @@
-<?
+<?php
 //cURL nutritionix for added food data
 
 session_start();

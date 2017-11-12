@@ -1,6 +1,6 @@
-<?
+<?php
 
-$url = 'localhost';
+require './core/init.php';
 
 $serving = $_POST['servingInput'];
 $serving_info = explode(" ", $serving);

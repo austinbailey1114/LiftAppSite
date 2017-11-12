@@ -1,11 +1,4 @@
-<?
-
-session_start();
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "liftapp";
+<?php
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -15,6 +8,7 @@ if (!$conn) {
 }
 
 $id = $_GET['id'];
+
 
 if ($sql = mysqli_prepare($conn, "DELETE FROM bodyweights WHERE id = $id")) {
 	mysqli_stmt_bind_param($sql, 'i', $id);
@@ -30,6 +24,11 @@ if ($sql = mysqli_prepare($conn, "DELETE FROM bodyweights WHERE id = $id")) {
 }
 
 header("Location: ../index.php");
+
+
+
+
+
 
 
 

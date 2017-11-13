@@ -1,5 +1,7 @@
 <?php
 
+require '../core/credentials.php';
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $name = $_POST['username'];

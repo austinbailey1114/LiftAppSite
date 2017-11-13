@@ -1,5 +1,6 @@
 <?php
 
+require '../core/credentials.php';
 $name = $_POST['name'];
 $newUsername = $_POST['username'];
 $newPassword = md5($_POST['password']);

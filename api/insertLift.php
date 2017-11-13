@@ -1,5 +1,6 @@
 <?php
 
+require '../core/credentials.php';
 session_start();
 
 // Create connection

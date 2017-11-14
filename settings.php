@@ -1,10 +1,18 @@
 <?php
-$to      = 'baileyau@bc.edu';
-$subject = 'the subject';
-$message = 'hello';
-$headers = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
-mail($to, $subject, $message, $headers);
+	session_start();
+	echo $_SESSION['email'];
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="sendemail.php">
+		<button>Reset password</button>
+	</form>
+	
+</body>
+</html>
+

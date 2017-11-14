@@ -21,6 +21,7 @@ if ($result['id'] != null) {
 	$_SESSION['id'] = $result['id'];
 	$_SESSION['name'] = $result['name'];
 	$_SESSION['created'] = $result['created'];
+	$_SESSION['email'] = $result['email'];
 	header("Location: ./index.php");
 } else {
 	header("Location: ./login.php?message=failed");

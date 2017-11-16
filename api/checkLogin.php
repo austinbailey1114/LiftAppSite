@@ -2,29 +2,29 @@
 
 require '../core/credentials.php';
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
 $name = $_POST['username'];
 $pass = md5($_POST['password']);
 
 //prepare sql statement with parameterized query
-if ($sql = mysqli_prepare($conn, "SELECT id, name, email FROM users WHERE username = ? AND password = ?")) {
-	mysqli_stmt_bind_param($sql, 'ss', $name, $pass);
-	mysqli_stmt_execute($sql);
-	mysqli_stmt_bind_result($sql, $id, $name, $email);
+$stmt = $mysqli->prepare("SELECT id, name, email FROM users WHERE username = ? AND password = ?");
+$stmt->bind_param('ss', $name, $pass);
+$stmt->execute();
+//bind id, name, email to corresponding variables
+$stmt->bind_result($id, $name, $email);
 
-	$returnData = array();
-	while (mysqli_stmt_fetch($sql)) {
-		$returnData['id'] = (int) $id;
-		$returnData['name'] = $name;
-		$returnData['created'] = time();
-		$returnData['email'] = $email;
-	}
-	echo json_encode($returnData);
-	mysqli_stmt_close($sql);
+//build the JSON array
+$returnData = array();
+while ($stmt->fetch()) {
+	$returnData['id'] = (int) $id;
+	$returnData['name'] = $name;
+	$returnData['created'] = time();
+	$returnData['email'] = $email;
 }
 
-mysqli_close($conn);
+echo json_encode($returnData);
+
+
+
 
 
 

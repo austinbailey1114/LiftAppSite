@@ -19,6 +19,16 @@ class Statement {
 			$data[] = $row;
 		}
 
+		//return the array
 		return $data;
+	}
+
+	function deleteData($mysqli, $sql, $id) {
+		//create and execute statement
+		$stmt = $mysqli->prepare($sql);
+		$stmt->bind_param('i', $id);
+		$result = $stmt->execute();
+		//return true if the statement was successful
+		return $result;
 	}
 }

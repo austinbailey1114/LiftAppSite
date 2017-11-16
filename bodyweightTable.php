@@ -2,6 +2,7 @@
 session_start();
 
 $bodyweights = $_SESSION['userBodyweights'];
+echo $_SESSION['message'];
 
 ?>
 

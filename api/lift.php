@@ -1,28 +1,13 @@
 <?php
 
 require '../core/credentials.php';
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require 'Statement.php';
 
+//get id of user
 $id = $_GET['id'];
 
-//use prepared statements to prevent injection
-if ($sql = mysqli_prepare($conn, "SELECT * FROM lifts WHERE user = ? ORDER BY date ASC")) {
-	mysqli_stmt_bind_param($sql, 'i', $id);
-	mysqli_stmt_execute($sql);
-	$result = mysqli_stmt_get_result($sql);
-
-	$lifts = array();
-	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		$lifts[] = $row;        
-    }
-    echo json_encode($lifts);
-}
-
-mysqli_close($conn);
-?>
+//use Statement class to get data
+$statement = new Statement();
+$lifts = $statement->getData($mysqli, "SELECT * FROM lifts WHERE user = ? ORDER BY date ASC", $id);
+echo json_encode($lifts);
 

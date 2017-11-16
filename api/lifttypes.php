@@ -7,7 +7,7 @@ require 'Statement.php';
 $id = $_GET['id'];
 
 //use Statement class to grab data
-$statement = new Statement();
+$statement = new Statsement();
 $statement = NULL;
 $lifttypes = $statement->getData($mysqli, "SELECT * FROM lifttypes WHERE user = ?", $id);
 echo json_encode($lifttypes);

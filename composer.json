@@ -1,5 +1,6 @@
 {
     "require": {
-        "plasticbrain/php-flash-messages": "^1.0"
+        "plasticbrain/php-flash-messages": "^1.0",
+        "ircmaxell/random-lib": "^1.2"
     }
 }

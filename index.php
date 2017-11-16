@@ -314,6 +314,9 @@ if (count($bodyweights) > 0) {
 					else if(message == "deleteSuccess") {
 						swal("Item deleted successfully", " ", "success");
 					}
+					else if(message == "deleteFailed") {
+						swal("Failed to delete item", "", 'warning');
+					}
 
 				
 				<?php

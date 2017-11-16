@@ -1,29 +1,13 @@
 <?php
 
 require '../core/credentials.php';
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+require 'Statement.php';
 
+//$id variable for this user
 $id = $_GET['id'];
 
-//use prepared statements to prevent injection
-if ($sql = mysqli_prepare($conn, "SELECT * FROM foods WHERE user = ? AND date > CURDATE()")) {
-	mysqli_stmt_bind_param($sql, 'i', $id);
-	mysqli_stmt_execute($sql);
-	$result = mysqli_stmt_get_result($sql);
+//build new statement to fetch users food data
+$statement = new Statement();
+$foods = $statement->getData($mysqli, "SELECT * FROM foods WHERE user = ? AND date > CURDATE()", $id);
+echo json_encode($foods);
 
-	$foodhistory = array();
-	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		$foodhistory[] = $row;
-	}
-	echo json_encode($foodhistory);
-} else {
-	echo "Error: " . mysqli_stmt_error($sql);
-}
-
-mysqli_close($conn);
-?>

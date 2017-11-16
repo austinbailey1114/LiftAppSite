@@ -1,6 +1,7 @@
 <?php
 
 require '../core/credentials.php';
+require 'Statement.php';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -10,18 +11,10 @@ if (!$conn) {
 
 $id = $_GET['id'];
 
-if ($sql = mysqli_prepare($conn, "SELECT * FROM bodyweights WHERE user = ?")) {
-	mysqli_stmt_bind_param($sql, 'i', $id);
-	mysqli_stmt_execute($sql);
-	$result = mysqli_stmt_get_result($sql);
+//build new statement to fetch users bodyweight data
+$statement = new Statement();
+$bodyweights = $statement->getData($mysqli, "SELECT * FROM bodyweights WHERE user = ?", $id);
+echo json_encode($bodyweights);
 
-	$bodyweights = array();
-	while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		$bodyweights[] = $row;
-	}
 
-	echo json_encode($bodyweights);
-}
-
-mysqli_close($conn);
 ?>

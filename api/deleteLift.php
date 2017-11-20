@@ -8,7 +8,7 @@ $id = $_GET['id'];
 
 //delete data using Statement class
 $statement = new Statement();
-$result = $statement->deleteData($mysqli, "DELETE FROM lifts WHERE id = $id", $id);
+$result = $statement->deleteData($mysqli, "DELETE FROM lifts WHERE id = ?", $id);
 echo $result;
 if ($result) {
 	$_SESSION['message'] = 'deleteSuccess';

@@ -6,20 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/accountcreatestyle.css">
+	<link rel="stylesheet" type="text/css" href="./css/accountCreate.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-	<div>
+	<div id="container">
 		<form action="addAccount.php" method="post">
-			<p>Name</p>
-			<input type="text" name="name">
-			<p id='promptUsername'>Username</p>
-			<input type="text" name="username" id='usernameInput'>
-			<p>Password</p>
-			<input type="text" name="password">
-			<button>Create</button>
+			<div id="nameDiv">
+				<p id="promptName">Name:</p>
+				<input type="text" name="name" id="nameInput" placeholder="name">
+			</div>
+			<div id="usernameDiv">
+				<p id='promptUsername'>Username:</p>
+				<input type="text" name="username" id='usernameInput' placeholder="username">
+			</div>
+			<div id="passwordDiv">
+				<p id="promptPassword">Password:</p>
+				<input type="text" name="password" id="passwordInput" placeholder="password">
+			</div>
+			<button id="button">Create</button>
 		</form>
 	</div>
 </body>

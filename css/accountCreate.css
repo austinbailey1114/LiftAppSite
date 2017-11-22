@@ -96,18 +96,18 @@ input {
 	display: inline-block;
 }
 
-#promptName, #promptUsername, #promptPassword {
+#promptName, #promptUsername, #promptPassword, #promptEmail {
 	float: left;
 	margin-left: 5%;
 }
 
-#usernameInput, #passwordInput, #nameInput {
+#usernameInput, #passwordInput, #nameInput, #emailInput {
 	float: right;
 	margin-right: 5%;
 	line-height: 50px;
 }
 
-#nameDiv, #usernameDiv, #passwordDiv {
+#nameDiv, #usernameDiv, #passwordDiv, #emailDiv {
 	margin: auto;
 	margin-top: 50px;
 	background-color: white;

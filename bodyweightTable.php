@@ -26,7 +26,7 @@ echo $_SESSION['message'];
 			foreach ($bodyweights as $bodyweight) {
 				echo "<tr>";
 				echo "<td>".$bodyweight['weight']."</td>";
-				echo "<td>".$bodyweight['date']."</td>";
+				echo "<td>".date("F d, Y", strtotime($bodyweight['date']))."</td>";
 				echo "<td><a href=api/deleteBodyweight.php?id=".$bodyweight['id']."><button>Delete</button></a></td>";
 				echo "</tr>";
 			}

@@ -2,7 +2,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,11 +68,5 @@
 	var emailInput = document.getElementById('emailInput');
 	emailInput.addEventListener('blur', function() {checkEmail(emailInput.value)});
 	
-	
-
-
-
-
-
 </script>
 </html>

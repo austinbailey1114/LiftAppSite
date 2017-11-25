@@ -33,7 +33,7 @@ $lifts = $_SESSION['userLifts'];
 			echo "<td>".str_replace("_", " ", $lift['type'])."</td>";
 			echo "<td>".$lift['weight']."</td>";
 			echo "<td>".$lift['reps']."</td>";
-			echo "<td>".$lift['date']."</td>";
+			echo "<td>".date("F d, Y", strtotime($lift['date']))."</td>";
 			echo "<td><a href=api/deleteLift.php?id=".$lift['id']."><button>Delete</button></a></td>";
 			echo "</tr>";
 		}

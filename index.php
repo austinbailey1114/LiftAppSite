@@ -392,7 +392,7 @@ if (count($bodyweights) > 0) {
 		}
 
 	</script>
-	<script type="text/javascript" src = "./js/buildgraph.js"></script>
+	<script type="text/javascript" src="./js/buildgraph.js"></script>
 </html>
 
 

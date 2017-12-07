@@ -7,8 +7,6 @@ Users can quickly input a new lift and have it stored in MySQL. Their data is gr
 The website is connected to my [Nutrition API](https://github.com/austinbailey1114/NutritionAPI), making a GET call using user-input search information. Users can easily add a food that they've eaten. The API shows them a list of what foods they have eaten that day, as well as nutritional information about what they have eaten overall that day. 
 ### Weight Tracking ###
 Much like the lift tracking, users can input their bodyweight and see how it changes over time using a graph.
-## In Development ##
-More changes to come 
 ## Pictures ## 
 ![alt-text](https://github.com/austinbailey1114/LiftAppSite/blob/master/screenshots/shot1.png)
 ![alt-text](https://github.com/austinbailey1114/LiftAppSite/blob/master/screenshots/shot2.png)

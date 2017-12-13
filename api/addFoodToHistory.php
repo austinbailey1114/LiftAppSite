@@ -19,7 +19,13 @@ $result = $result[0];
 $stmt->bind_param('isdddd', $_SESSION['id'], $result['name'], $result['calories'], $result['fat'], $result['carbohydrate'], $result['protein']);
 $result = $stmt->execute();
 
-header("Location: ../search.php");
+if ($result) {
+	$_SESSION['message'] = 'success';
+} else {
+	$_SESSION['message'] = 'failed';
+}
+
+header("Location: ../index.php");
 
 
 ?>

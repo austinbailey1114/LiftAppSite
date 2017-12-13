@@ -26,4 +26,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 $result = curl_exec($ch);
 
-header("Location: ./index.php?message=success");
+if ($result) {
+	$_SESSION['message'] = 'success';
+} else {
+	$_SESSION['message'] = 'failed';
+}
+
+header("Location: ./index.php");

@@ -4,7 +4,7 @@ $name = "Austin Bailey";
 
 $ch = curl_init();
 
-$url1 = $url . "/";
+$url1 = $url . "/api/searchFood.php?search=";
 $url2 =  "&api_key=1";
 
 $searchInput = str_replace(" ", "_", $_POST['searchField']);

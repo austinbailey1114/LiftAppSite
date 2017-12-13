@@ -5,7 +5,7 @@ require '../core/credentials.php';
 require 'Statement.php';
 
 $search = $_GET['search'];
-
+$search = str_replace("_", " ", $search);
 
 $sql = "SELECT * FROM foodData WHERE MATCH(name) AGAINST(?) ORDER BY MATCH(name) AGAINST(?) DESC";
 $stmt = $mysqli->prepare($sql);

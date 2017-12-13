@@ -4,7 +4,7 @@ $name = "Austin Bailey";
 
 $ch = curl_init();
 
-$url1 = "localhost/NutritionAPI/api/foods.php?search=";
+$url1 = $url . "/";
 $url2 =  "&api_key=1";
 
 $searchInput = str_replace(" ", "_", $_POST['searchField']);

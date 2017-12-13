@@ -19,13 +19,11 @@ $foodData = array(
 
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, $url . "/NutritionAPI/api/createFood.php");
+curl_setopt($ch, CURLOPT_URL, $url . "/api/addFoodToTable.php");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($foodData));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 $result = curl_exec($ch);
 
-echo $result;
-
-header('Location: ./index.php');
+header("Location: ./index.php?message=success");

@@ -14,15 +14,12 @@ $sql = "INSERT INTO foods (user, name, calories, fat, carbs, protein) VALUES
 
 $stmt = $mysqli->prepare($sql);
 
-var_dump($result);
-
 $result = $result[0];
 
 $stmt->bind_param('isdddd', $_SESSION['id'], $result['name'], $result['calories'], $result['fat'], $result['carbohydrate'], $result['protein']);
 $result = $stmt->execute();
 
-var_dump($result);
-
+header("Location: ../search.php");
 
 
 ?>

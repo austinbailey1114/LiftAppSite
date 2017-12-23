@@ -1,5 +1,7 @@
 <?php
 
+//require '../Query/Query.php';
+
 // Report all PHP errors (see changelog)
 error_reporting(E_ALL);
 

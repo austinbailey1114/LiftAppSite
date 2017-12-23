@@ -7,7 +7,7 @@ require 'Statement.php';
 $search = $_GET['search'];
 $search = str_replace("_", " ", $search);
 
-$sql = "SELECT * FROM foodData WHERE MATCH(name) AGAINST(?) ORDER BY MATCH(name) AGAINST(?) DESC";
+$sql = "SELECT * FROM foodData WHERE MATCH(name) AGAINST(? IN NATURAL LANGUAGE MODE) ORDER BY MATCH(name) AGAINST(? IN NATURAL LANGUAGE MODE) DESC";
 $stmt = $mysqli->prepare($sql);
 
 $stmt->bind_param("ss", $search, $search);

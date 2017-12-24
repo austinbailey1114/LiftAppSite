@@ -16,11 +16,14 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 $result = curl_exec($ch);
 $result = json_decode(trim($result), true);
+$result = $result[0];
+
+var_dump($result);
 
 if ($result['id'] != null) {
 	$_SESSION['id'] = $result['id'];
 	$_SESSION['name'] = $result['name'];
-	$_SESSION['created'] = $result['created'];
+	$_SESSION['created'] = time();
 	$_SESSION['email'] = $result['email'];
 	header("Location: ./index.php");
 } else {

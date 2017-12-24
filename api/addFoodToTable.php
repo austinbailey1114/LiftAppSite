@@ -1,14 +1,13 @@
 <?php
 
-require "../core/credentials.php";
-require "../core/init.php";
+require '../core/init.php';
+require '../Query/Query.php';
 
-$sql = "INSERT INTO foodData (name, serving_unit, serving_value, calories, fat, carbohydrate, protein) VALUES
-(?, ?, ?, ?, ?, ?, ?)";
+$query = new Query($mysqli);
 
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param('sdsdddd', $_POST['name'], $_POST['serving_unit'], $_POST['serving_value'], $_POST['calories'], $_POST['fat'], $_POST['carbohydrate'], $_POST['protein']);
-$result = $stmt->execute();
+$success = $query->table('foodData')->insert(array('name', 'serving_unit', 'serving_value', 'calories', 'fat', 'carbohydrate', 'protein'),
+								  array($_POST['name'], $_POST['serving_unit'], $_POST['serving_value'], $_POST['calories'], $_POST['fat'], $_POST['carbohydrate'], $_POST['protein']))
+						->execute();
 
-echo json_encode($result);
+echo json_encode($success);
 

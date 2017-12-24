@@ -1,28 +1,32 @@
 <?php
 
-require "../core/credentials.php";
 require '../core/init.php';
-require "Statement.php";
+
+require '../Query/Query.php';
 
 $foodId = $_GET['id'];
 
-$stmt = new Statement();
-$result = $stmt->getData($mysqli, "SELECT * FROM foodData WHERE id = ?", $foodId);
+if (isset($_SESSION['id'])) {
+	$user_id = $_SESSION['id'];
+} else {
+	$user_id = $_GET['user_id'];
+}
 
-$sql = "INSERT INTO foods (user, name, calories, fat, carbs, protein) VALUES
-(?, ?, ?, ?, ?, ?)";
-
-$stmt = $mysqli->prepare($sql);
+$query = new Query($mysqli);
+$result = $query->table('foodData')->where('id', '=', $foodId)->execute();
 
 $result = $result[0];
 
-$stmt->bind_param('isdddd', $_SESSION['id'], $result['name'], $result['calories'], $result['fat'], $result['carbohydrate'], $result['protein']);
-$result = $stmt->execute();
+$success = $query->table('foods')->insert(array('user', 'name', 'calories', 'fat', 'carbs', 'protein'),
+										  array($user_id, $result['name'], $result['calories'], $result['fat'], $result['carbohydrate'], $result['protein']))
+								 ->execute();
 
-if ($result) {
+if ($success) {
 	$_SESSION['message'] = 'success';
+	echo "Success";
 } else {
 	$_SESSION['message'] = 'failed';
+	echo "Failure";
 }
 
 header("Location: ../index.php");

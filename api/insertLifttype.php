@@ -4,7 +4,7 @@ require "../core/credentials.php";
 require '../core/init.php';
 
 $user_id = $_POST['id'];
-$name = $_POST['name']
+$name = $_POST['name'];
 
 $sql = "INSERT INTO lifttypes (user, name) VALUES (?, ?)";
 

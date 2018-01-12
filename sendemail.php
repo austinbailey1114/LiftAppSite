@@ -21,7 +21,7 @@ session_start();
 
 $to      = $_SESSION['email'];
 $subject = 'Password Reset';
-$message = 'Your new password is: ' . $newPass . ". " . $result;
+$message = 'Your new password is: ' . $newPass;
 $headers = 'From: liftappsite@austinmbailey.com';
 
 mail($to, $subject, $message, $headers);

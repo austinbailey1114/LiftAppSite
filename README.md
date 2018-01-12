@@ -1,3 +1,4 @@
+# This repository has moved to: https://github.com/austinbailey1114/new_LiftAppSite
 # LiftAppSite
 ## Features ##
 This repository is a companion website for [LiftApp](https://github.com/austinbailey1114/iOS). It tracks user data about weight lifting, nutrition, and bodyweight using MySQL. The site shares a MySQL database with the app, so user data is synced up on both platforms. 
